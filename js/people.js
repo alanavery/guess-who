@@ -1,9 +1,8 @@
 class Person {
-  constructor(name, gender, head, hairColor, hair, hat, eyes, eyebrows, glasses, ears, nose, mouth, moustache, beard, chin) {
+  constructor(name, gender, head, hair, hat, eyes, eyebrows, glasses, ears, nose, mouth, moustache, beard, chin) {
     this.name = name;
     this.gender = gender;
     this.head = head;
-    this.hairColor = hairColor;
     this.hair = hair;
     this.hat = hat;
     this.eyes = eyes;
@@ -20,8 +19,8 @@ class Person {
 
 let allPeople = [];
 
-let createNewPerson = (name, gender, head, hairColor, hair, hat, eyes, eyebrows, glasses, ears, nose, mouth, moustache, beard, chin) => {
-  let newPerson = new Person(name, gender, head, hairColor, hair, hat, eyes, eyebrows, glasses, ears, nose, mouth, moustache, beard, chin);
+let createNewPerson = (name, gender, head, hair, hat, eyes, eyebrows, glasses, ears, nose, mouth, moustache, beard, chin) => {
+  let newPerson = new Person(name, gender, head, hair, hat, eyes, eyebrows, glasses, ears, nose, mouth, moustache, beard, chin);
   allPeople.push(newPerson);
 }
 
@@ -37,8 +36,7 @@ createNewPerson(
   'Alex', // Name
   male, // Gender
   ['big', 'wide', 'square', 'boxy'], // Head
-  hairColorBlack, // Hair color
-  ['curly', 'short'], // Hair
+  ['curly', 'short', 'black', 'dark brown'], // Hair
   [], // Hat
   ['brown'], // Eyes
   ['normal', 'average', 'thin'], // Eyebrows
@@ -55,8 +53,7 @@ createNewPerson(
   'Alfred', // Name
   male, // Gender
   ['thin', 'round', 'oval'], // Head
-  hairColorRed, // Hair color
-  ['straight', 'long'], // Hair
+  ['straight', 'long', 'red', 'orange'], // Hair
   [], // Hat
   ['blue'], // Eyes
   ['normal', 'average', 'thin'], // Eyebrows
@@ -73,8 +70,7 @@ createNewPerson(
   'Anita', // Name
   female, // Gender
   ['small', 'round', 'circular'], // Head
-  hairColorBlonde, // Hair color
-  ['straight', 'long', 'pigtails'], // Hair
+  ['straight', 'long', 'pigtails', 'blonde', 'yellow'], // Hair
   [], // Hat
   ['blue'], // Eyes
   ['normal', 'average', 'thin', 'small'], // Eyebrows
@@ -91,8 +87,7 @@ createNewPerson(
   'Anne', // Name
   female, // Gender
   ['big', 'wide', 'round', 'circular'], // Head
-  hairColorBlack, // Hair color
-  ['curly', 'short'], // Hair
+  ['curly', 'short', 'black', 'dark brown'], // Hair
   [], // Hat
   ['brown'], // Eyes
   ['normal', 'average', 'thin'], // Eyebrows
@@ -109,8 +104,7 @@ createNewPerson(
   'Bernard', // Name
   male, // Gender
   ['square', 'boxy'], // Head
-  hairColorBrown, // Hair color
-  ['straight', 'short'], // Hair
+  ['straight', 'short', 'brown', 'light brown'], // Hair
   ['gray'], // Hat
   ['brown'], // Eyes
   ['normal', 'average', 'thin'], // Eyebrows
