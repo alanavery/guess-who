@@ -117,4 +117,4 @@ createNewPerson(
   ['big', 'dimple', 'butt'] // Chin
 );
 
-console.log(allPeople);
+console.log(allPeople); // Test
