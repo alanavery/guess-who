@@ -18,6 +18,13 @@ class Person {
   }
 }
 
+let allPeople = [];
+
+let createNewPerson = (name, gender, head, hairColor, hair, hat, eyes, eyebrows, glasses, ears, nose, mouth, moustache, beard, chin) => {
+  let newPerson = new Person(name, gender, head, hairColor, hair, hat, eyes, eyebrows, glasses, ears, nose, mouth, moustache, beard, chin);
+  allPeople.push(newPerson);
+}
+
 let male = ['man', 'boy', 'male'];
 let female = ['woman', 'girl', 'female'];
 
@@ -26,7 +33,7 @@ let hairColorRed = ['red', 'orange'];
 let hairColorBlonde = ['blonde', 'yellow'];
 let hairColorBrown = ['brown', 'light brown'];
 
-let alex = new Person(
+createNewPerson(
   'Alex', // Name
   male, // Gender
   ['big', 'wide', 'square', 'boxy'], // Head
@@ -44,9 +51,7 @@ let alex = new Person(
   ['big', 'wide', 'round'] // Chin
 );
 
-console.log(alex);
-
-let alfred = new Person(
+createNewPerson(
   'Alfred', // Name
   male, // Gender
   ['thin', 'round', 'oval'], // Head
@@ -64,9 +69,7 @@ let alfred = new Person(
   ['big', 'round'] // Chin
 );
 
-console.log(alfred);
-
-let anita = new Person(
+createNewPerson(
   'Anita', // Name
   female, // Gender
   ['small', 'round', 'circular'], // Head
@@ -84,9 +87,7 @@ let anita = new Person(
   ['small', 'round'] // Chin
 );
 
-console.log(anita);
-
-let anne = new Person(
+createNewPerson(
   'Anne', // Name
   female, // Gender
   ['big', 'wide', 'round', 'circular'], // Head
@@ -104,9 +105,7 @@ let anne = new Person(
   ['big', 'round'] // Chin
 );
 
-console.log(anne);
-
-let bernard = new Person(
+createNewPerson(
   'Bernard', // Name
   male, // Gender
   ['square', 'boxy'], // Head
@@ -124,4 +123,4 @@ let bernard = new Person(
   ['big', 'dimple', 'butt'] // Chin
 );
 
-console.log(bernard);
+console.log(allPeople);
