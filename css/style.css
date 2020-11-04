@@ -2,11 +2,15 @@ body {
   text-align: center;
 }
 
+img {
+  width: 500px;
+}
+
 .hidden {
   display: none;
   /* visibility: hidden; */
 }
 
-img {
-  width: 500px;
+#sec-guess {
+  margin-top: 200px;
 }
