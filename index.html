@@ -15,33 +15,44 @@
       <img src="reference/sample-guess-who-cards-v02.jpeg" alt="Test image">
     </div>
     
-    <div>
-      <h2>Current Question</h2>
-      <h3 id="current-question"></h3>
-    </div>
+    <section id="sec-mystery-person">
     
-    <div id="div-user-question">
-      <label for="user-feature">Feature:</label>
-      <input type="text" name="user-question" id="user-feature">
-      <label for="user-adjective">Adjective:</label>
-      <input type="text" name="user-question" id="user-adjective">
-      <button id="button-ask">Ask Question</button>
-    </div>
+      <button id="button-start">Get Your Mystery Person</button>
+      <h3></h3>
 
-    <div id="div-next-question" class="hidden">
-      <button id="button-next">Next Question</button>
-    </div>
+    </section>
     
-    <div>
-      <h2>Current Response</h2>
-      <h3 id="current-response"></h3>
-    </div>
+    <section id="sec-question" class="hidden">
+    
+      <div>
+        <h2>Current Question</h2>
+        <h3 id="current-question"></h3>
+      </div>
+      
+      <div id="div-user-question">
+        <label for="user-feature">Feature:</label>
+        <input type="text" name="user-question" id="user-feature">
+        <label for="user-adjective">Adjective:</label>
+        <input type="text" name="user-question" id="user-adjective">
+        <button id="button-ask">Ask Question</button>
+      </div>
 
-    <div id="div-user-response" class="hidden">
-      <label for="user-response">Response:</label>
-      <input type="text" name="user-response" id="user-response">
-      <button id="button-answer">Answer Question</button>
-    </div>
+      <div id="div-next-question" class="hidden">
+        <button id="button-next">Next Question</button>
+      </div>
+      
+      <div>
+        <h2>Current Response</h2>
+        <h3 id="current-response"></h3>
+      </div>
+
+      <div id="div-user-response" class="hidden">
+        <label for="user-response">Response:</label>
+        <input type="text" name="user-response" id="user-response">
+        <button id="button-answer">Answer Question</button>
+      </div>
+        
+    </section>
     
     <script src="js/people.js"></script>
     <script src="js/app.js"></script>

@@ -18,12 +18,15 @@
   let inputFeature = document.getElementById('user-feature');
   let inputAdjective = document.getElementById('user-adjective');
   let inputUserResponse = document.getElementById('user-response');
+  let buttonStart = document.getElementById('button-start');
   let buttonAsk = document.getElementById('button-ask');
   let buttonNext = document.getElementById('button-next');
   let buttonAnswer = document.getElementById('button-answer');
+  let secQuestion = document.getElementById('sec-question');
   let divUserQuestion = document.getElementById('div-user-question');
   let divNextQuestion = document.getElementById('div-next-question');
   let divUserResponse = document.getElementById('div-user-response');
+  let mysteryPerson = document.querySelector('#sec-mystery-person h3');
   let currentQuestion = document.getElementById('current-question');
   let currentResponse = document.getElementById('current-response');
 
@@ -85,18 +88,23 @@
     }
     player1MysteryPerson = allPeople[randomNum1];
     player2MysteryPerson = allPeople[randomNum2];
+    // Handle display ————————————————————
+    mysteryPerson.textContent = `Your Mystery Person is ${player1MysteryPerson.name}.`;
+    buttonStart.classList.add('hidden');
+    secQuestion.classList.remove('hidden');
+    console.log(player1MysteryPerson, player2MysteryPerson); // Test
   };
 
   let handleUserQuestion = () => {
     feature = inputFeature.value;
     adjective = inputAdjective.value;
-    displayQuestion();
     if (player2MysteryPerson[feature].includes(adjective) || (!adjective && player2MysteryPerson[feature].length > 0)) {
       currentResponse.textContent = 'Yes.';
     } else {
       currentResponse.textContent = 'No.';
     }
     // Handle display ————————————————————
+    displayQuestion();
     divUserQuestion.classList.add('hidden');
     divNextQuestion.classList.remove('hidden');
   };
@@ -132,6 +140,7 @@
     divNextQuestion.classList.add('hidden');
     divUserResponse.classList.remove('hidden');
     currentResponse.textContent = '';
+    inputUserResponse.value = '';
   };
 
   let handleUserResponse = () => {
@@ -149,15 +158,9 @@
 
 
 
-  // Call functions
-
-  assignMysteryPerson();
-  console.log(player1MysteryPerson, player2MysteryPerson);
-
-
-
   // Event listeners
 
+  buttonStart.addEventListener('click', assignMysteryPerson);
   buttonAsk.addEventListener('click', handleUserQuestion);
   buttonNext.addEventListener('click', handleComputerQuestion);
   buttonAnswer.addEventListener('click', handleUserResponse);
