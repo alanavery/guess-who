@@ -15,8 +15,8 @@ let computerFirstQuestion = true;
 let feature;
 let adjective;
 
-let inputFeature = document.getElementById('user-feature');
-let inputAdjective = document.getElementById('user-adjective');
+let selectFeature = document.getElementById('feature');
+let selectAdjective = document.getElementById('adjective');
 let inputResponse = document.getElementById('user-response');
 let inputGuess = document.getElementById('user-guess');
 let buttonStart = document.getElementById('button-start');
@@ -37,23 +37,49 @@ let currentQuestion = document.getElementById('current-question');
 let currentResponse = document.getElementById('current-response');
 let outcome = document.getElementById('outcome');
 
-let searchableKeys = Object.keys(allPeople[0]).filter(key => {
-  if (key !== 'name' && key !== 'gender') {
+let questionType = document.getElementById('question-type'); // Version 3
+let questionCenter = document.getElementById('question-center'); // Version 3
+
+let allFeatures = Object.keys(allPeople[0]).filter(feature => {
+  if (feature !== 'name' && feature !== 'gender') {
     return true;
   } else {
     return false;
   }
 });
 
+let allAdjectives = []; // Version 3
+allPeople.forEach(person => {
+  allFeatures.forEach(feature => {
+    allAdjectives = allAdjectives.concat(person[feature]);
+  });
+});
+allAdjectives = allAdjectives.filter((adjective, index) => {
+  return allAdjectives.indexOf(adjective) === index;
+});
+
 
 
 // Helper functions
 
-let show = (element) => {
+let createOptionElement = option => { // Version 3
+  let newOptionElement = document.createElement('option');
+  newOptionElement.value = option;
+  newOptionElement.textContent = option;
+  return newOptionElement;
+};
+
+let removeAllChildElements = parent => { // Version 3
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+};
+
+let show = element => {
   element.classList.remove('hidden');
 };
 
-let hide = (element) => {
+let hide = element => {
   element.classList.add('hidden');
 };
 
@@ -76,6 +102,30 @@ let checkForValidQuestion = () => {
 
 
 // Display functions
+
+let displayUserQuestion = () => { // Version 3
+  if (questionType.value === 'Does') {
+    questionCenter.textContent = 'your person have';
+    show(selectFeature);
+    hide(selectAdjective);
+    removeAllChildElements(selectAdjective);
+    let blankOption = createOptionElement('blank')
+    allFeatures.forEach(feature => {
+      let newOptionElement = createOptionElement(feature);
+      selectFeature.appendChild(newOptionElement);
+    });
+  } else {
+    questionCenter.textContent = 'your person a';
+    show(selectAdjective);
+    hide(selectFeature);
+    removeAllChildElements(selectAdjective);
+    let gender = ['woman', 'man'];
+    gender.forEach(adjective => {
+      let newOptionElement = createOptionElement(adjective);
+      selectAdjective.appendChild(newOptionElement);
+    });
+  }
+};
 
 let displayQuestion = () => {
   if (feature === 'gender') {
@@ -108,6 +158,7 @@ let displayGameScreen1 = () => {
 };
 
 let displayGameScreen2 = () => {
+  displayUserQuestion(); // Version 3
   // Show
   show(secQuestion);
   show(secGuess);
@@ -119,8 +170,8 @@ let displayGameScreen2 = () => {
   // Clear text
   currentQuestion.textContent = '';
   currentResponse.textContent = '';
-  inputFeature.value = '';
-  inputAdjective.value = '';
+  selectFeature.value = '';
+  selectAdjective.value = '';
   inputGuess.value = '';
 };
 
@@ -170,8 +221,8 @@ let assignMysteryPerson = () => {
 };
 
 let handleUserQuestion = () => {
-  feature = inputFeature.value;
-  adjective = inputAdjective.value;
+  feature = selectFeature.value;
+  adjective = selectAdjective.value;
   displayQuestion();
   if (player2MysteryPerson[feature].includes(adjective) || (!adjective && player2MysteryPerson[feature].length > 0)) {
     currentResponse.textContent = 'Yes.';
@@ -188,7 +239,7 @@ let handleComputerQuestion = () => {
     computerFirstQuestion = false;
   } else {
     // Pick a feature ————————————————————
-    feature = searchableKeys[pickRandomNum(searchableKeys.length)];
+    feature = allFeatures[pickRandomNum(allFeatures.length)];
     // Pick an adjective ————————————————————
     let searchableValues = [];
     possibilities.forEach(person => {
@@ -198,7 +249,7 @@ let handleComputerQuestion = () => {
     // Check if the feature and adjective are valid ————————————————————
     let validQuestion = checkForValidQuestion();
     while (!validQuestion) {
-      feature = searchableKeys[pickRandomNum(searchableKeys.length)];
+      feature = allFeatures[pickRandomNum(allFeatures.length)];
       let searchableValues = [];
       possibilities.forEach(person => {
         searchableValues = searchableValues.concat(person[feature]);
@@ -249,6 +300,8 @@ buttonNext.addEventListener('click', handleComputerQuestion);
 buttonAnswer.addEventListener('click', handleUserResponse);
 buttonGuess.addEventListener('click', handleUserGuess);
 buttonReset.addEventListener('click', handleGameOver);
+
+questionType.addEventListener('change', displayUserQuestion); // Version 3
 
 
 

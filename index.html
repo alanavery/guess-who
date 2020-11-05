@@ -28,11 +28,32 @@
       </div>
       
       <div id="div-user-question">
-        <label for="user-feature">Feature:</label>
+        <!-- <label for="user-feature">Feature:</label>
         <input type="text" name="user-question" id="user-feature">
         <label for="user-adjective">Adjective:</label>
-        <input type="text" name="user-question" id="user-adjective">
+        <input type="text" name="user-question" id="user-adjective"> -->
+        
+        <div id="question-text">
+        
+          <select name="question-types" id="question-type">
+            <option value="Does">Does</option>
+            <option value="Is">Is</option>
+          </select>
+          
+          <p id="question-center"></p>
+          
+          <select name="adjective" id="adjective">
+          </select>
+
+          <select name="features" id="feature">
+          </select>
+          
+          <p>?</p>
+          
+        </div>
+        
         <button id="button-ask">Ask Question</button>
+        
       </div>
 
       <div id="div-next-question" class="hidden">

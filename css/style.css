@@ -1,4 +1,9 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap');
+
+* {
+  font: 400 16px 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
@@ -6,9 +11,50 @@ img {
   width: 500px;
 }
 
+button {
+  background-color: teal;
+  border-radius: 0.5rem;
+  border-width: 0;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 0.6rem;
+}
+
 .hidden {
   display: none;
   /* visibility: hidden; */
+}
+
+#div-user-question {
+  background-color: lightgray;
+  border-radius: 0.8rem;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  width: 90vw;
+}
+
+select {
+  appearance: none;
+  background-color: lightgray;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.4rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#question-text {
+  padding-bottom: 1rem;
+}
+
+#question-text p {
+  display: inline-block;
+  font-size: 2rem;
+  padding: 0.4rem;
 }
 
 #sec-guess {
