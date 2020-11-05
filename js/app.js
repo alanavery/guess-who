@@ -40,6 +40,7 @@ let currentResponse = document.querySelector('.current-response');
 let response1 = document.querySelector('.response1');
 let response2 = document.querySelector('.response2');
 let outcome = document.querySelector('.outcome');
+let secPeople = document.querySelector('.sec-people');
 
 let selectQuestionType = document.querySelector('.question-type'); // Version 3
 let questionCenter = document.querySelector('.question-center'); // Version 3
@@ -338,6 +339,14 @@ let handleGameOver = () => {
   handleReset();
 }
 
+let fadePerson = (event) => {
+  if (event.target.classList[0]) {
+    event.target.classList.remove('faded');
+  } else {
+    event.target.classList.add('faded');
+  }
+};
+
 
 
 // Event listeners
@@ -349,7 +358,7 @@ buttonNext2.addEventListener('click', handleReset);
 divButtonsResponse.addEventListener('click', handleUserResponse);
 buttonGuess.addEventListener('click', handleUserGuess);
 buttonReset.addEventListener('click', handleGameOver);
-
+secPeople.addEventListener('click', fadePerson);
 selectQuestionType.addEventListener('change', handleSelectQuestionType); // Version 3
 selectFeature.addEventListener('change', handleSelectFeature); // Version 3
 selectAdjective.addEventListener('change', handleSelectAdjective); // Version 3

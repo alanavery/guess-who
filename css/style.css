@@ -7,10 +7,6 @@
   text-align: center;
 }
 
-img {
-  width: 500px;
-}
-
 button {
   background-color: teal;
   border-radius: 0.5rem;
@@ -21,6 +17,26 @@ button {
   font-size: 1.2rem;
   margin: 0 auto;
   padding: 0.6rem;
+}
+
+
+/* People section */
+
+.sec-people {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  margin: 0 auto;
+  padding: 3rem;
+  width: 90%;
+}
+
+img {
+  width: 150px;
+}
+
+.faded {
+  opacity: 0.5;
 }
 
 
