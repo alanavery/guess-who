@@ -11,76 +11,62 @@
   <body>
     <h1>Guess Who?</h1>
     
+    <section class="sec-mystery-person">
+      <button class="button-start">Get Your Mystery Person</button>
+      <h3 class="mystery-person"></h3>
+    </section>
+    
+    <button class="button-guess">Make a Guess</button>
+    <input type="text" name="user-guess" class="user-guess">
+    
     <div>
       <img src="reference/sample-guess-who-cards-v02.jpeg" alt="Test image">
     </div>
     
-    <section id="sec-mystery-person">
-      <button id="button-start">Get Your Mystery Person</button>
-      <h3 id="mystery-person"></h3>
-    </section>
     
-    <section id="sec-question" class="hidden">
     
-      <div>
-        <h2>Current Question</h2>
-        <h3 id="current-question"></h3>
+    
+    <section class="sec-question hidden">
+          
+      <div class="sec-question-divs">
+        <p class="response1"></p>
       </div>
       
-      <div id="div-user-question">
-        <!-- <label for="user-feature">Feature:</label>
-        <input type="text" name="user-question" id="user-feature">
-        <label for="user-adjective">Adjective:</label>
-        <input type="text" name="user-question" id="user-adjective"> -->
-        
-        <div id="question-text">
-        
-          <select name="question-types" id="question-type">
+      <div class="div-question sec-question-divs">
+        <div class="div-question-user">
+          <select name="question-types" class="question-type">
             <option value="Does">Does</option>
             <option value="Is">Is</option>
           </select>
-          
-          <p id="question-center"></p>
-          
-          <select name="adjective" id="adjective">
+          <p class="question-center"></p>
+          <select name="adjective" class="adjective">
           </select>
-
-          <select name="features" id="feature">
+          <select name="features" class="feature">
           </select>
-          
           <p>?</p>
-          
         </div>
-        
-        <button id="button-ask">Ask Question</button>
-        
+        <p class="current-question"></p>
       </div>
 
-      <div id="div-next-question" class="hidden">
-        <button id="button-next">Next Question</button>
-      </div>
-      
-      <div>
-        <h2>Current Response</h2>
-        <h3 id="current-response"></h3>
+      <div class="sec-question-divs">
+        <p class="response2"></p>
       </div>
 
-      <div id="div-user-response" class="hidden">
-        <label for="user-response">Response:</label>
-        <input type="text" name="user-response" id="user-response">
-        <button id="button-answer">Answer Question</button>
-      </div>
-        
+      <section class="sec-controls hidden">
+        <button class="button-ask">Ask Question</button>
+        <button class="button-next1 hidden">Next Question</button>
+        <button class="button-next2 hidden">Next Question</button>
+        <div class="div-buttons-response hidden">
+          <button class="button-yes">Yes</button>
+          <button class="button-no">No</button>
+        </div>
+      </section>
     </section>
 
-    <section id="sec-guess" class="hidden">
-      <input type="text" name="user-guess" id="user-guess">
-      <button id="button-guess">Make a Guess</button>
-    </section>
 
-    <section id="sec-outcome" class="hidden">
-      <h2 id="outcome"></h2>
-      <button id="button-reset">Play Again</button>
+    <section class="sec-outcome hidden">
+      <h2 class="outcome"></h2>
+      <button class="button-reset">Play Again</button>
     </section>
     
     <script src="js/people.js"></script>

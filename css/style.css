@@ -17,24 +17,44 @@ button {
   border-width: 0;
   color: white;
   cursor: pointer;
-  display: block;
   font-weight: 600;
   font-size: 1.2rem;
   margin: 0 auto;
   padding: 0.6rem;
 }
 
-.hidden {
-  display: none;
-  /* visibility: hidden; */
+
+/* Question section */
+
+.sec-question {
+  display: grid;
+  column-gap: 0.5rem;
+  grid-template-columns: 1fr 6fr 1fr;
+  margin: 0 auto;
+  row-gap: 1rem;
+  width: 90%;
 }
 
-#div-user-question {
-  background-color: lightgray;
+.sec-question-divs {
+  align-items: center;
+  border: solid 0.2rem teal;
   border-radius: 0.8rem;
-  margin: 1.5rem auto;
+  display: flex;
+  justify-content: center;
   padding: 1.5rem;
-  width: 90vw;
+}
+
+.sec-question-divs p {
+  display: inline-block;
+  font-size: 2rem;
+  line-height: 1.5;
+  padding: 0.4rem;
+}
+
+.div-question {
+  background-color: lightgray;
+  border-width: 0;
+  min-height: 6rem;
 }
 
 select {
@@ -43,20 +63,35 @@ select {
   cursor: pointer;
   font-size: 2rem;
   padding: 0.4rem;
-  text-align: center;
-  white-space: nowrap;
 }
 
-#question-text {
-  padding-bottom: 1rem;
+.current-question {
+  font-weight: 600;
 }
 
-#question-text p {
-  display: inline-block;
-  font-size: 2rem;
-  padding: 0.4rem;
+.response1, .response2 {
+  color: teal;
+  font-weight: 700;
 }
 
-#sec-guess {
-  margin-top: 200px;
+
+/* Controls section */
+
+.sec-controls {
+  grid-column: 1 / span 3;
+}
+
+.button-guess {
+  display: block;
+}
+
+
+
+
+
+
+
+
+.hidden {
+  display: none;
 }

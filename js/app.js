@@ -6,39 +6,43 @@
 // let twoPlayers = false;
 // let gameOver = false;
 let player1 = true;
-let player1Score = 0;
-let player2Score = 0;
-let player1MysteryPerson;
-let player2MysteryPerson;
+let score1 = 0;
+let score2 = 0;
+let mysteryPerson1;
+let mysteryPerson2;
 let possibilities = allPeople;
 let computerFirstQuestion = true;
 let feature;
 let adjective;
 
-let selectFeature = document.getElementById('feature');
-let selectAdjective = document.getElementById('adjective');
-let inputResponse = document.getElementById('user-response');
-let inputGuess = document.getElementById('user-guess');
-let buttonStart = document.getElementById('button-start');
-let buttonAsk = document.getElementById('button-ask');
-let buttonNext = document.getElementById('button-next');
-let buttonAnswer = document.getElementById('button-answer');
-let buttonGuess = document.getElementById('button-guess');
-let buttonReset = document.getElementById('button-reset');
-let secMysteryPerson = document.getElementById('sec-mystery-person');
-let secQuestion = document.getElementById('sec-question');
-let secGuess = document.getElementById('sec-guess');
-let secOutcome = document.getElementById('sec-outcome');
-let divUserQuestion = document.getElementById('div-user-question');
-let divNextQuestion = document.getElementById('div-next-question');
-let divUserResponse = document.getElementById('div-user-response');
-let mysteryPerson = document.getElementById('mystery-person');
-let currentQuestion = document.getElementById('current-question');
-let currentResponse = document.getElementById('current-response');
-let outcome = document.getElementById('outcome');
+let selectFeature = document.querySelector('.feature');
+let selectAdjective = document.querySelector('.adjective');
+let inputResponse = document.querySelector('.user-response');
+let inputGuess = document.querySelector('.user-guess');
+let buttonStart = document.querySelector('.button-start');
+let buttonAsk = document.querySelector('.button-ask');
+let buttonNext1 = document.querySelector('.button-next1');
+let buttonNext2 = document.querySelector('.button-next2');
+let divButtonsResponse = document.querySelector('.div-buttons-response');
+let buttonYes = document.querySelector('.button-yes');
+let buttonNo = document.querySelector('.button-no');
+let buttonGuess = document.querySelector('.button-guess');
+let buttonReset = document.querySelector('.button-reset');
+let secMysteryPerson = document.querySelector('.sec-mystery-person');
+let secQuestion = document.querySelector('.sec-question');
+let secControls = document.querySelector('.sec-controls');
+let secOutcome = document.querySelector('.sec-outcome');
+let divQuestion = document.querySelector('.div-question');
+let divQuestionUser = document.querySelector('.div-question-user')
+let mysteryPerson = document.querySelector('.mystery-person');
+let currentQuestion = document.querySelector('.current-question');
+let currentResponse = document.querySelector('.current-response');
+let response1 = document.querySelector('.response1');
+let response2 = document.querySelector('.response2');
+let outcome = document.querySelector('.outcome');
 
-let questionType = document.getElementById('question-type'); // Version 3
-let questionCenter = document.getElementById('question-center'); // Version 3
+let selectQuestionType = document.querySelector('.question-type'); // Version 3
+let questionCenter = document.querySelector('.question-center'); // Version 3
 
 let allFeatures = Object.keys(allPeople[0]).filter(feature => {
   if (feature !== 'name' && feature !== 'gender') {
@@ -48,25 +52,25 @@ let allFeatures = Object.keys(allPeople[0]).filter(feature => {
   }
 });
 
-let allAdjectives = []; // Version 3
-allPeople.forEach(person => {
-  allFeatures.forEach(feature => {
-    allAdjectives = allAdjectives.concat(person[feature]);
-  });
-});
-allAdjectives = allAdjectives.filter((adjective, index) => {
-  return allAdjectives.indexOf(adjective) === index;
-});
-
 
 
 // Helper functions
 
-let createOptionElement = option => { // Version 3
-  let newOptionElement = document.createElement('option');
-  newOptionElement.value = option;
-  newOptionElement.textContent = option;
-  return newOptionElement;
+let populateSelectMenu = (selectMenu, optionsArray) => { // Version 3
+  removeAllChildElements(selectMenu);
+  optionsArray.forEach(option => {
+    let newOption = document.createElement('option');
+    newOption.textContent = option;
+    newOption.value = option;
+    selectMenu.appendChild(newOption);
+  });
+  if (selectQuestionType.value === 'Does' && selectMenu === selectAdjective) {
+    let blankOption = document.createElement('option');
+    blankOption.textContent = 'Leave blank';
+    blankOption.value = 'blank';
+    selectMenu.appendChild(blankOption);
+  }
+  selectMenu.value = '';
 };
 
 let removeAllChildElements = parent => { // Version 3
@@ -103,27 +107,50 @@ let checkForValidQuestion = () => {
 
 // Display functions
 
-let displayUserQuestion = () => { // Version 3
-  if (questionType.value === 'Does') {
+let handleSelectQuestionType = () => { // Version 3
+  if (selectQuestionType.value === 'Does') {
     questionCenter.textContent = 'your person have';
     show(selectFeature);
     hide(selectAdjective);
-    removeAllChildElements(selectAdjective);
-    let blankOption = createOptionElement('blank')
-    allFeatures.forEach(feature => {
-      let newOptionElement = createOptionElement(feature);
-      selectFeature.appendChild(newOptionElement);
-    });
+    populateSelectMenu(selectFeature, allFeatures);
   } else {
     questionCenter.textContent = 'your person a';
     show(selectAdjective);
     hide(selectFeature);
-    removeAllChildElements(selectAdjective);
     let gender = ['woman', 'man'];
-    gender.forEach(adjective => {
-      let newOptionElement = createOptionElement(adjective);
-      selectAdjective.appendChild(newOptionElement);
-    });
+    populateSelectMenu(selectAdjective, gender);
+  }
+};
+
+let handleSelectFeature = () => { // Version 3
+  feature = selectFeature.value;
+  if (feature.endsWith('s') || feature === 'hair') {
+    questionCenter.textContent = 'your person have';
+  } else {
+    questionCenter.textContent = 'your person have a';
+  }
+  let allAdjectives = [];
+  allPeople.forEach(person => {
+    allAdjectives = allAdjectives.concat(person[feature]);
+  });
+  allAdjectives = allAdjectives.filter((adjective, index) => {
+    return allAdjectives.indexOf(adjective) === index;
+  });
+  if (selectQuestionType.value === 'Does' && allAdjectives.length) {
+    show(selectAdjective);
+    populateSelectMenu(selectAdjective, allAdjectives);
+  } else {
+    hide(selectAdjective);
+  }
+};
+
+let handleSelectAdjective = () => { // Version 3
+  adjective = selectAdjective.value;
+  if (adjective === 'woman' || adjective === 'man') {
+    feature = 'gender';
+  } else if (adjective === 'blank') {
+    adjective = '';
+    selectAdjective.value = '';
   }
 };
 
@@ -151,25 +178,21 @@ let displayGameScreen1 = () => {
   show(buttonStart);
   // Hide
   hide(secQuestion);
-  hide(secGuess);
+  hide(secControls);
   hide(secOutcome);
   // Clear text
   mysteryPerson.textContent = '';
 };
 
 let displayGameScreen2 = () => {
-  displayUserQuestion(); // Version 3
+  handleSelectQuestionType(); // Version 3
   // Show
   show(secQuestion);
-  show(secGuess);
-  show(divUserQuestion);
+  show(secControls);
+  show(divQuestion);
   // Hide
   hide(buttonStart);
-  hide(divNextQuestion);
-  hide(divUserResponse);
   // Clear text
-  currentQuestion.textContent = '';
-  currentResponse.textContent = '';
   selectFeature.value = '';
   selectAdjective.value = '';
   inputGuess.value = '';
@@ -177,16 +200,13 @@ let displayGameScreen2 = () => {
 
 let displayGameScreen3 = () => {
   // Show
-  show(divNextQuestion);
   // Hide
-  hide(divUserQuestion);
+  hide(buttonAsk);
 };
 
 let displayGameScreen4 = () => {
   // Show
-  show(divUserResponse);
   // Hide
-  hide(divNextQuestion);
   // Clear text
   currentResponse.textContent = '';
   inputResponse.value = '';
@@ -198,7 +218,7 @@ let displayGameScreen5 = string => {
   // Hide
   hide(secMysteryPerson);
   hide(secQuestion);
-  hide(secGuess);
+  hide(secControls);
   // Set text
   outcome.textContent = string;
 };
@@ -213,26 +233,30 @@ let assignMysteryPerson = () => {
   while (randomNum2 === randomNum1) {
     randomNum2 = pickRandomNum(allPeople.length);
   }
-  player1MysteryPerson = allPeople[randomNum1];
-  player2MysteryPerson = allPeople[randomNum2];
-  mysteryPerson.textContent = `Your Mystery Person is ${player1MysteryPerson.name}.`;
+  mysteryPerson1 = allPeople[randomNum1];
+  mysteryPerson2 = allPeople[randomNum2];
+  mysteryPerson.textContent = `Your Mystery Person is ${mysteryPerson1.name}.`;
   displayGameScreen2();
-  console.log(player1MysteryPerson, player2MysteryPerson); // Test
+  console.log(mysteryPerson1, mysteryPerson2); // Test
 };
 
 let handleUserQuestion = () => {
-  feature = selectFeature.value;
-  adjective = selectAdjective.value;
-  displayQuestion();
-  if (player2MysteryPerson[feature].includes(adjective) || (!adjective && player2MysteryPerson[feature].length > 0)) {
-    currentResponse.textContent = 'Yes.';
+  console.log(adjective, feature);
+  hide(divQuestionUser);
+  hide(buttonAsk);
+  setTimeout(displayQuestion, 1000);
+  if (adjective && mysteryPerson2[feature].includes(adjective) || (!adjective && mysteryPerson2[feature].length > 0)) {
+    setTimeout(() => response2.textContent = 'Yes', 3000);
   } else {
-    currentResponse.textContent = 'No.';
+    setTimeout(() => response2.textContent = 'No', 3000);
   }
-  displayGameScreen3();
+  setTimeout(() => show(buttonNext1), 5000);
 };
 
 let handleComputerQuestion = () => {
+  currentQuestion.textContent = '';
+  response2.textContent = '';
+  hide(buttonNext1);
   if (computerFirstQuestion) {
     feature = 'gender';
     adjective = 'man';
@@ -258,36 +282,60 @@ let handleComputerQuestion = () => {
       validQuestion = checkForValidQuestion();
     }
   }
-  displayQuestion();
-  displayGameScreen4();
+  setTimeout(displayQuestion, 2000);
+  setTimeout(() => show(divButtonsResponse), 4000);
 };
 
-let handleUserResponse = () => {
-  if (inputResponse.value === 'yes') {
+let handleUserResponse = (event) => {
+  if (event.target.classList[0] === 'button-yes') {
+    hide(divButtonsResponse);
+    setTimeout(() => response1.textContent = 'Yes', 1000);
     possibilities = possibilities.filter(person => person[feature].includes(adjective));
-  } else {
+  } else if (event.target.classList[0] === 'button-no') {
+    hide(divButtonsResponse);
+    setTimeout(() => response1.textContent = 'No', 1000);
     possibilities = possibilities.filter(person => !person[feature].includes(adjective));
   }
-  if (possibilities.length === 1) {
-    displayGameScreen5(`I want to make a guess: ${player1MysteryPerson.name} is your Mystery Person! I win!`); // Future feature 1
-  } else {
-    displayGameScreen2();
-    console.log(possibilities); // Test
-  }
+  setTimeout(() => {
+    if (possibilities.length === 1) {
+      displayGameScreen5(`I want to make a guess: ${mysteryPerson1.name} is your Mystery Person! I win!`); // Future feature 1
+    } else {
+      console.log(possibilities); // Test
+      setTimeout(() => show(buttonNext2), 2000);
+    }
+  }, 2000);
+
+};
+
+let handleReset = () => {
+  hide(buttonNext2);
+  currentQuestion.textContent = '';
+  response1.textContent = '';
+  response2.textContent = '';
+  show(divQuestionUser);
+  show(buttonAsk);
+  selectQuestionType.value = 'Does';
+  handleSelectQuestionType();
 };
 
 let handleUserGuess = () => {
-  if (inputGuess.value === player2MysteryPerson.name) {
-    displayGameScreen5(`${player2MysteryPerson.name} is correct! You win!`);
+  if (inputGuess.value === mysteryPerson2.name) {
+    displayGameScreen5(`${mysteryPerson2.name} is correct! You win!`);
   } else {
-    displayGameScreen5(`${inputGuess.value} is not correct. My Mystery Person is ${player2MysteryPerson.name}. Sorry, you lose.`);
+    displayGameScreen5(`${inputGuess.value} is not correct. My Mystery Person is ${mysteryPerson2.name}. Sorry, you lose.`);
   }
 };
 
 let handleGameOver = () => {
   possibilities = allPeople;
   computerFirstQuestion = true;
-  displayGameScreen1();
+  show(secMysteryPerson);
+  show(buttonStart);
+  hide(secQuestion);
+  hide(secOutcome);
+  mysteryPerson.textContent = '';
+  inputGuess.value = '';
+  handleReset();
 }
 
 
@@ -296,12 +344,15 @@ let handleGameOver = () => {
 
 buttonStart.addEventListener('click', assignMysteryPerson);
 buttonAsk.addEventListener('click', handleUserQuestion);
-buttonNext.addEventListener('click', handleComputerQuestion);
-buttonAnswer.addEventListener('click', handleUserResponse);
+buttonNext1.addEventListener('click', handleComputerQuestion);
+buttonNext2.addEventListener('click', handleReset);
+divButtonsResponse.addEventListener('click', handleUserResponse);
 buttonGuess.addEventListener('click', handleUserGuess);
 buttonReset.addEventListener('click', handleGameOver);
 
-questionType.addEventListener('change', displayUserQuestion); // Version 3
+selectQuestionType.addEventListener('change', handleSelectQuestionType); // Version 3
+selectFeature.addEventListener('change', handleSelectFeature); // Version 3
+selectAdjective.addEventListener('change', handleSelectAdjective); // Version 3
 
 
 
