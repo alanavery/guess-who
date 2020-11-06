@@ -7,6 +7,10 @@
   text-align: center;
 }
 
+body {
+  padding-top: 2rem;
+}
+
 button {
   background-color: teal;
   border-radius: 0.5rem;
@@ -15,7 +19,7 @@ button {
   cursor: pointer;
   font-weight: 600;
   font-size: 1.2rem;
-  margin: 0 auto;
+  margin: 0.5rem auto 0 auto;
   padding: 0.6rem;
 }
 
@@ -26,9 +30,9 @@ header, footer {
   display: grid;
   column-gap: 0.5rem;
   grid-template-columns: 8rem 1fr 8rem;
+  grid-template-rows: auto auto;
   margin: 0 auto;
-  min-height: 8rem;
-  row-gap: 1rem;
+  row-gap: 0.5rem;
   width: 90%;
 }
 
@@ -42,18 +46,28 @@ header section {
 .sec-p1-person, .sec-p2-person {
   border: solid 0.2rem teal;
   border-radius: 0.8rem;
+  box-sizing: border-box;
+  min-height: 8rem;
   padding: 1rem;
 }
 
 h1 {
   color: teal;
-  font: 700 2.5em 'Raleway', sans-serif;
+  font: 700 2.5rem 'Raleway', sans-serif;
 }
 
 input {
   display: block;
-  margin-bottom: 0.8rem;
   width: 100%;
+}
+
+.p1-label, .p2-label {
+  color: teal;
+  font-weight: 600;
+}
+
+.p2-label {
+  grid-column: 3 / span 1;
 }
 
 
@@ -73,9 +87,18 @@ main {
   flex-direction: column;
   justify-content: center;
   left: 15%;
+  padding: 1rem;
   position: absolute;
   right: 15%;
   top: 5rem;
+  z-index: 1;
+}
+
+.outcome {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+  padding-bottom: 0.5rem;
 }
 
 .sec-people {
@@ -96,7 +119,7 @@ img {
 }
 
 
-/* Question section */
+/* Footer */
 
 footer section {
   align-items: center;
@@ -105,23 +128,28 @@ footer section {
   justify-content: center;
 }
 
+footer p {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
 .sec-response1, .sec-response2 {
   border: solid 0.2rem teal;
   border-radius: 0.8rem;
   padding: 1rem;
 }
 
+.response1, .response2 {
+  color: teal;
+  font-weight: 700;
+}
+
 .sec-question {
   background-color: lightgray;
   border-radius: 0.8rem;
+  box-sizing: border-box;
+  min-height: 8rem;
   padding: 1rem;
-}
-
-footer p {
-  display: inline-block;
-  font-size: 2rem;
-  line-height: 1.5;
-  padding: 0.4rem;
 }
 
 select {
@@ -132,14 +160,15 @@ select {
   padding: 0.4rem;
 }
 
+.div-p1-question p {
+  display: inline-block;
+  padding: 0.4rem;
+}
+
 .current-question {
   font-weight: 600;
 }
 
-.response1, .response2 {
-  color: teal;
-  font-weight: 700;
-}
 
 
 /* Controls section */

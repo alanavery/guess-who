@@ -14,7 +14,7 @@
     <header>
       
       <section class="sec-p1-person">
-        <h3 class="mystery-person"></h3>
+        <p class="mystery-person"></p>
       </section>
       
       <section class="sec-title">
@@ -22,9 +22,13 @@
       </section>
       
       <section class="sec-p2-person">
-        <input type="text" name="user-guess" id="user-guess">
+        <input type="text" name="p1-guess" id="p1-guess">
         <button class="button-guess">Guess</button>
       </section>
+
+      <p class="p1-label">Player 1</p>
+
+      <p class="p2-label">Player 2</p>
     
     </header>
     
@@ -32,7 +36,9 @@
     <main>
       
       <section class="sec-popup">
-        <button class="button-start">Get Your Mystery Person</button>
+        <button class="button-start">Pick Your Mystery Person</button>
+        <p class="outcome"></p>
+        <button class="button-play-again hidden">Pick Another Person</button>
       </section>
       
       <section class="sec-people">
@@ -72,11 +78,11 @@
         <p class="response2"></p>
       </section>
 
-      <section class="sec-controls hidden">
-        <button class="button-ask">Ask Question</button>
+      <section class="sec-controls">
+        <button class="button-ask hidden">Ask Question</button>
         <button class="button-next1 hidden">Next Question</button>
         <button class="button-next2 hidden">Next Question</button>
-        <div class="div-buttons-response hidden">
+        <div class="div-response-buttons hidden">
           <button class="button-yes">Yes</button>
           <button class="button-no">No</button>
         </div>
@@ -86,8 +92,6 @@
 
 
     <section class="sec-outcome hidden">
-      <h2 class="outcome"></h2>
-      <button class="button-reset">Play Again</button>
     </section>
     
     <script src="js/people.js"></script>
