@@ -103,7 +103,7 @@ main {
 
 .sec-people {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
   justify-items: center;
   margin: 0 auto;
   padding: 3rem;
