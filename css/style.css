@@ -20,7 +20,63 @@ button {
 }
 
 
-/* People section */
+/* Header */
+
+header, footer {
+  display: grid;
+  column-gap: 0.5rem;
+  grid-template-columns: 8rem 1fr 8rem;
+  margin: 0 auto;
+  min-height: 8rem;
+  row-gap: 1rem;
+  width: 90%;
+}
+
+header section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sec-p1-person, .sec-p2-person {
+  border: solid 0.2rem teal;
+  border-radius: 0.8rem;
+  padding: 1rem;
+}
+
+h1 {
+  color: teal;
+  font: 700 2.5em 'Raleway', sans-serif;
+}
+
+input {
+  display: block;
+  margin-bottom: 0.8rem;
+  width: 100%;
+}
+
+
+/* Main */
+
+main {
+  position: relative;
+}
+
+.sec-popup {
+  align-items: center;
+  background-color: white;
+  border: solid 0.2rem teal;
+  border-radius: 0.8rem;
+  bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 15%;
+  position: absolute;
+  right: 15%;
+  top: 5rem;
+}
 
 .sec-people {
   display: grid;
@@ -42,35 +98,30 @@ img {
 
 /* Question section */
 
-.sec-question {
-  display: grid;
-  column-gap: 0.5rem;
-  grid-template-columns: 1fr 6fr 1fr;
-  margin: 0 auto;
-  row-gap: 1rem;
-  width: 90%;
+footer section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.sec-question-divs {
-  align-items: center;
+.sec-response1, .sec-response2 {
   border: solid 0.2rem teal;
   border-radius: 0.8rem;
-  display: flex;
-  justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
-.sec-question-divs p {
+.sec-question {
+  background-color: lightgray;
+  border-radius: 0.8rem;
+  padding: 1rem;
+}
+
+footer p {
   display: inline-block;
   font-size: 2rem;
   line-height: 1.5;
   padding: 0.4rem;
-}
-
-.div-question {
-  background-color: lightgray;
-  border-width: 0;
-  min-height: 6rem;
 }
 
 select {
@@ -96,12 +147,6 @@ select {
 .sec-controls {
   grid-column: 1 / span 3;
 }
-
-.button-guess {
-  display: block;
-}
-
-
 
 
 

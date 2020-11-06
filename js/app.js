@@ -15,6 +15,22 @@ let computerFirstQuestion = true;
 let feature;
 let adjective;
 
+// Sections
+
+let secPopup = document.querySelector('.sec-popup');
+let secMysteryPerson = document.querySelector('.sec-mystery-person');
+let footer = document.querySelector('footer');
+let secControls = document.querySelector('.sec-controls');
+let secOutcome = document.querySelector('.sec-outcome');
+let secPeople = document.querySelector('.sec-people');
+let secQuestion = document.querySelector('.sec-question');
+
+// Divs
+
+let divP1Question = document.querySelector('.div-p1-question')
+let divButtonsResponse = document.querySelector('.div-buttons-response');
+
+
 let selectFeature = document.querySelector('.feature');
 let selectAdjective = document.querySelector('.adjective');
 let inputResponse = document.querySelector('.user-response');
@@ -23,24 +39,16 @@ let buttonStart = document.querySelector('.button-start');
 let buttonAsk = document.querySelector('.button-ask');
 let buttonNext1 = document.querySelector('.button-next1');
 let buttonNext2 = document.querySelector('.button-next2');
-let divButtonsResponse = document.querySelector('.div-buttons-response');
 let buttonYes = document.querySelector('.button-yes');
 let buttonNo = document.querySelector('.button-no');
 let buttonGuess = document.querySelector('.button-guess');
 let buttonReset = document.querySelector('.button-reset');
-let secMysteryPerson = document.querySelector('.sec-mystery-person');
-let secQuestion = document.querySelector('.sec-question');
-let secControls = document.querySelector('.sec-controls');
-let secOutcome = document.querySelector('.sec-outcome');
-let divQuestion = document.querySelector('.div-question');
-let divQuestionUser = document.querySelector('.div-question-user')
 let mysteryPerson = document.querySelector('.mystery-person');
 let currentQuestion = document.querySelector('.current-question');
 let currentResponse = document.querySelector('.current-response');
 let response1 = document.querySelector('.response1');
 let response2 = document.querySelector('.response2');
 let outcome = document.querySelector('.outcome');
-let secPeople = document.querySelector('.sec-people');
 
 let selectQuestionType = document.querySelector('.question-type'); // Version 3
 let questionCenter = document.querySelector('.question-center'); // Version 3
@@ -178,7 +186,7 @@ let displayGameScreen1 = () => {
   show(secMysteryPerson);
   show(buttonStart);
   // Hide
-  hide(secQuestion);
+  hide(footer);
   hide(secControls);
   hide(secOutcome);
   // Clear text
@@ -188,9 +196,9 @@ let displayGameScreen1 = () => {
 let displayGameScreen2 = () => {
   handleSelectQuestionType(); // Version 3
   // Show
-  show(secQuestion);
+  show(footer);
   show(secControls);
-  show(divQuestion);
+  show(secQuestion);
   // Hide
   hide(buttonStart);
   // Clear text
@@ -218,7 +226,7 @@ let displayGameScreen5 = string => {
   show(secOutcome);
   // Hide
   hide(secMysteryPerson);
-  hide(secQuestion);
+  hide(footer);
   hide(secControls);
   // Set text
   outcome.textContent = string;
@@ -229,6 +237,7 @@ let displayGameScreen5 = string => {
 // Primary functions
 
 let assignMysteryPerson = () => {
+  hide(secPopup);
   let randomNum1 = pickRandomNum(allPeople.length);
   let randomNum2 = pickRandomNum(allPeople.length);
   while (randomNum2 === randomNum1) {
@@ -237,13 +246,12 @@ let assignMysteryPerson = () => {
   mysteryPerson1 = allPeople[randomNum1];
   mysteryPerson2 = allPeople[randomNum2];
   mysteryPerson.textContent = `Your Mystery Person is ${mysteryPerson1.name}.`;
-  displayGameScreen2();
   console.log(mysteryPerson1, mysteryPerson2); // Test
 };
 
 let handleUserQuestion = () => {
   console.log(adjective, feature);
-  hide(divQuestionUser);
+  hide(divP1Question);
   hide(buttonAsk);
   setTimeout(displayQuestion, 1000);
   if (adjective && mysteryPerson2[feature].includes(adjective) || (!adjective && mysteryPerson2[feature].length > 0)) {
@@ -309,11 +317,12 @@ let handleUserResponse = (event) => {
 };
 
 let handleReset = () => {
+  hide(buttonNext1);
   hide(buttonNext2);
   currentQuestion.textContent = '';
   response1.textContent = '';
   response2.textContent = '';
-  show(divQuestionUser);
+  show(divP1Question);
   show(buttonAsk);
   selectQuestionType.value = 'Does';
   handleSelectQuestionType();
@@ -332,7 +341,7 @@ let handleGameOver = () => {
   computerFirstQuestion = true;
   show(secMysteryPerson);
   show(buttonStart);
-  hide(secQuestion);
+  hide(footer);
   hide(secOutcome);
   mysteryPerson.textContent = '';
   inputGuess.value = '';

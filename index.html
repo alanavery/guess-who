@@ -9,35 +9,51 @@
   </head>
 
   <body>
-    <h1>Guess Who?</h1>
-    
-    <section class="sec-mystery-person">
-      <button class="button-start">Get Your Mystery Person</button>
-      <h3 class="mystery-person"></h3>
-    </section>
-    
-    <button class="button-guess">Make a Guess</button>
-    <input type="text" name="user-guess" class="user-guess">
-    
-    <section class="sec-people">
-      <img src="img/sample-alex.jpeg" alt="...">
-      <img src="img/sample-alfred.jpeg" alt="...">
-      <img src="img/sample-anita.jpeg" alt="...">
-      <img src="img/sample-anne.jpeg" alt="...">
-      <img src="img/sample-bernard.jpeg" alt="...">
-    </section>
     
     
-    
-    
-    <section class="sec-question hidden">
-          
-      <div class="sec-question-divs">
-        <p class="response1"></p>
-      </div>
+    <header>
       
-      <div class="div-question sec-question-divs">
-        <div class="div-question-user">
+      <section class="sec-p1-person">
+        <h3 class="mystery-person"></h3>
+      </section>
+      
+      <section class="sec-title">
+        <h1>Guess Who?</h1>
+      </section>
+      
+      <section class="sec-p2-person">
+        <input type="text" name="user-guess" id="user-guess">
+        <button class="button-guess">Guess</button>
+      </section>
+    
+    </header>
+    
+    
+    <main>
+      
+      <section class="sec-popup">
+        <button class="button-start">Get Your Mystery Person</button>
+      </section>
+      
+      <section class="sec-people">
+        <img src="img/sample-alex.jpeg" alt="...">
+        <img src="img/sample-alfred.jpeg" alt="...">
+        <img src="img/sample-anita.jpeg" alt="...">
+        <img src="img/sample-anne.jpeg" alt="...">
+        <img src="img/sample-bernard.jpeg" alt="...">
+      </section>
+      
+    </main>
+    
+    
+    <footer>
+          
+      <section class="sec-response1">
+        <p class="response1"></p>
+      </section>
+      
+      <section class="sec-question">
+        <div class="div-p1-question hidden">
           <select name="question-types" class="question-type">
             <option value="Does">Does</option>
             <option value="Is">Is</option>
@@ -50,11 +66,11 @@
           <p>?</p>
         </div>
         <p class="current-question"></p>
-      </div>
+      </section>
 
-      <div class="sec-question-divs">
+      <section class="sec-response2">
         <p class="response2"></p>
-      </div>
+      </section>
 
       <section class="sec-controls hidden">
         <button class="button-ask">Ask Question</button>
@@ -65,7 +81,8 @@
           <button class="button-no">No</button>
         </div>
       </section>
-    </section>
+
+    </footer>
 
 
     <section class="sec-outcome hidden">
