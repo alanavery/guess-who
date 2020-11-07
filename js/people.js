@@ -1,120 +1,335 @@
 class Person {
-  constructor(name, gender, head, hair, hat, eyes, eyebrows, glasses, ears, nose, mouth, moustache, beard, chin) {
+  constructor(name, gender, hair, hat, eyes, earrings, nose, moustache, beard, shirt) {
     this.name = name;
     this.gender = gender;
-    this.head = head;
     this.hair = hair;
     this.hat = hat;
     this.eyes = eyes;
-    this.eyebrows = eyebrows;
-    this.glasses = glasses;
-    this.ears = ears;
+    this.earrings = earrings;
     this.nose = nose;
-    this.mouth = mouth;
     this.moustache = moustache;
     this.beard = beard;
-    this.chin = chin;
+    this.shirt = shirt;
   }
 }
 
 let allPeople = [];
 
-let createNewPerson = (name, gender, head, hair, hat, eyes, eyebrows, glasses, ears, nose, mouth, moustache, beard, chin) => {
-  let newPerson = new Person(name, gender, head, hair, hat, eyes, eyebrows, glasses, ears, nose, mouth, moustache, beard, chin);
+let createNewPerson = (name, gender, hair, hat, eyes, earrings, nose, moustache, beard, shirt) => {
+  let newPerson = new Person(name, gender, hair, hat, eyes, earrings, nose, moustache, beard, shirt);
   allPeople.push(newPerson);
 }
 
-let male = ['man', 'boy', 'male'];
-let female = ['woman', 'girl', 'female'];
-
-let hairColorBlack = ['black', 'dark brown'];
-let hairColorRed = ['red', 'orange'];
-let hairColorBlonde = ['blonde', 'yellow'];
-let hairColorBrown = ['brown', 'light brown'];
-
 createNewPerson(
-  'Alex', // Name
-  male, // Gender
-  ['big', 'wide', 'square', 'boxy'], // Head
-  ['curly', 'short', 'black', 'dark brown'], // Hair
-  [], // Hat
-  ['brown'], // Eyes
-  ['normal', 'average', 'thin'], // Eyebrows
-  [], // Glasses
-  ['big'], // Ears
-  ['normal', 'average'], // Nose
-  ['big', 'wide', 'thick', 'pink'], // Mouth
-  ['normal', 'average', 'thin'], // Moustache
-  [], // Beard
-  ['big', 'wide', 'round'] // Chin
+  'Adam', // Name
+  'man', // Gender
+  'brown', // Hair
+  false, // Hat
+  'brown', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'blue' // Shirt
 );
 
 createNewPerson(
-  'Alfred', // Name
-  male, // Gender
-  ['thin', 'round', 'oval'], // Head
-  ['straight', 'long', 'red', 'orange'], // Hair
-  [], // Hat
-  ['blue'], // Eyes
-  ['normal', 'average', 'thin'], // Eyebrows
-  [], // Glasses
-  ['big'], // Ears
-  ['normal', 'average'], // Nose
-  ['small'], // Mouth
-  ['normal', 'average', 'thin', 'long'], // Moustache
-  [], // Beard
-  ['big', 'round'] // Chin
+  'Amber', // Name
+  'woman', // Gender
+  'blond', // Hair
+  false, // Hat
+  'blue', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'yellow' // Shirt
 );
 
 createNewPerson(
-  'Anita', // Name
-  female, // Gender
-  ['small', 'round', 'circular'], // Head
-  ['straight', 'long', 'pigtails', 'blonde', 'yellow'], // Hair
-  [], // Hat
-  ['blue'], // Eyes
-  ['normal', 'average', 'thin', 'small'], // Eyebrows
-  [], // Glasses
-  ['small'], // Ears
-  ['small'], // Nose
-  ['small', 'pink'], // Mouth
-  [], // Moustache
-  [], // Beard
-  ['small', 'round'] // Chin
+  'Bobby', // Name
+  'man', // Gender
+  'red', // Hair
+  false, // Hat
+  'green', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'yellow' // Shirt
 );
 
 createNewPerson(
-  'Anne', // Name
-  female, // Gender
-  ['big', 'wide', 'round', 'circular'], // Head
-  ['curly', 'short', 'black', 'dark brown'], // Hair
-  [], // Hat
-  ['brown'], // Eyes
-  ['normal', 'average', 'thin'], // Eyebrows
-  [], // Glasses
-  ['small', 'earrings'], // Ears
-  ['big'], // Nose
-  ['small', 'red'], // Mouth
-  [], // Moustache
-  [], // Beard
-  ['big', 'round'] // Chin
+  'Chris', // Name
+  'man', // Gender
+  'brown', // Hair
+  false, // Hat
+  'green', // Eyes
+  false, // Earrings
+  'bigger', // Nose
+  false, // Moustache
+  true, // Beard
+  'red' // Shirt
 );
 
 createNewPerson(
-  'Bernard', // Name
-  male, // Gender
-  ['square', 'boxy'], // Head
-  ['straight', 'short', 'brown', 'light brown'], // Hair
-  ['gray'], // Hat
-  ['brown'], // Eyes
-  ['normal', 'average', 'thin'], // Eyebrows
-  [], // Glasses
-  ['big'], // Ears
-  ['big'], // Nose
-  ['small'], // Mouth
-  [], // Moustache
-  [], // Beard
-  ['big', 'dimple', 'butt'] // Chin
+  'Dave', // Name
+  'man', // Gender
+  'red', // Hair
+  true, // Hat
+  'brown', // Eyes
+  false, // Earrings
+  'bigger', // Nose
+  false, // Moustache
+  true, // Beard
+  'purple' // Shirt
+);
+
+createNewPerson(
+  'Ellie', // Name
+  'woman', // Gender
+  'blond', // Hair
+  false, // Hat
+  'brown', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'blue' // Shirt
+);
+
+createNewPerson(
+  'Emily', // Name
+  'woman', // Gender
+  'black', // Hair
+  false, // Hat
+  'green', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'green' // Shirt
+);
+
+createNewPerson(
+  'Emma', // Name
+  'woman', // Gender
+  'red', // Hair
+  false, // Hat
+  'green', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'purple' // Shirt
+);
+
+createNewPerson(
+  'Hannah', // Name
+  'woman', // Gender
+  'black', // Hair
+  true, // Hat
+  'blue', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'green' // Shirt
+);
+
+createNewPerson(
+  'Henry', // Name
+  'man', // Gender
+  'brown', // Hair
+  true, // Hat
+  'green', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'red' // Shirt
+);
+
+createNewPerson(
+  'Holly', // Name
+  'woman', // Gender
+  'brown', // Hair
+  false, // Hat
+  'blue', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'red' // Shirt
+);
+
+createNewPerson(
+  'Jake', // Name
+  'man', // Gender
+  'gray', // Hair
+  false, // Hat
+  'blue', // Eyes
+  false, // Earrings
+  'bigger', // Nose
+  true, // Moustache
+  false, // Beard
+  'blue' // Shirt
+);
+
+createNewPerson(
+  'Jess', // Name
+  'woman', // Gender
+  'red', // Hair
+  false, // Hat
+  'green', // Eyes
+  true, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'red' // Shirt
+);
+
+createNewPerson(
+  'Joey', // Name
+  'man', // Gender
+  'black', // Hair
+  false, // Hat
+  'blue', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'purple' // Shirt
+);
+
+createNewPerson(
+  'Mary', // Name
+  'woman', // Gender
+  'gray', // Hair
+  false, // Hat
+  'blue', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'blue' // Shirt
+);
+
+createNewPerson(
+  'Matt', // Name
+  'man', // Gender
+  'black', // Hair
+  false, // Hat
+  'brown', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  true, // Beard
+  'green' // Shirt
+);
+
+createNewPerson(
+  'Megan', // Name
+  'woman', // Gender
+  'black', // Hair
+  false, // Hat
+  'brown', // Eyes
+  true, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'purple' // Shirt
+);
+
+createNewPerson(
+  'Molly', // Name
+  'woman', // Gender
+  'brown', // Hair
+  false, // Hat
+  'blue', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'green' // Shirt
+);
+
+createNewPerson(
+  'Myra', // Name
+  'woman', // Gender
+  'brown', // Hair
+  true, // Hat
+  'brown', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'red' // Shirt
+);
+
+createNewPerson(
+  'Oliver', // Name
+  'man', // Gender
+  'blond', // Hair
+  false, // Hat
+  'green', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'purple' // Shirt
+);
+
+createNewPerson(
+  'Rick', // Name
+  'man', // Gender
+  'blond', // Hair
+  false, // Hat
+  'blue', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'blue' // Shirt
+);
+
+createNewPerson(
+  'Sami', // Name
+  'man', // Gender
+  'black', // Hair
+  false, // Hat
+  'brown', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  true, // Moustache
+  false, // Beard
+  'purple' // Shirt
+);
+
+createNewPerson(
+  'Sarah', // Name
+  'woman', // Gender
+  'red', // Hair
+  false, // Hat
+  'brown', // Eyes
+  false, // Earrings
+  'smaller', // Nose
+  false, // Moustache
+  false, // Beard
+  'red' // Shirt
+);
+
+createNewPerson(
+  'Thomas', // Name
+  'man', // Gender
+  'black', // Hair
+  false, // Hat
+  'blue', // Eyes
+  false, // Earrings
+  'bigger', // Nose
+  false, // Moustache
+  false, // Beard
+  'yellow' // Shirt
 );
 
 console.log(allPeople); // Test
