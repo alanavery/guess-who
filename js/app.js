@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Text elements
 
-  let mysteryPerson = document.querySelector('.mystery-person');
+  let p1PersonName = document.querySelector('.p1-person-name');
+  let p2PersonName = document.querySelector('.p2-person-name');
   let currentQuestion = document.querySelector('.current-question');
   let response1 = document.querySelector('.response1');
   let response2 = document.querySelector('.response2');
@@ -23,16 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Sections
 
+  let secP1Person = document.querySelector('.sec-p1-person');
+  let secP2Person = document.querySelector('.sec-p2-person');
   let secPopup = document.querySelector('.sec-popup');
   let secPeople = document.querySelector('.sec-people');
 
   // Divs
 
-  let divP1Question = document.querySelector('.div-p1-question')
+  let divP1Question = document.querySelector('.div-p1-question');
   let divResponseButtons = document.querySelector('.div-response-buttons');
 
   // Select menus
 
+  let selectGuess = document.getElementById('p1-guess');
   let selectQuestionType = document.querySelector('.question-type');
   let selectFeature = document.querySelector('.feature');
   let selectAdjective = document.querySelector('.adjective');
@@ -46,9 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let buttonGuess = document.querySelector('.button-guess');
   let buttonPlayAgain = document.querySelector('.button-play-again');
 
-  // Inputs
+  // Images
 
-  let p1Guess = document.getElementById('p1-guess');
+  let allImages = document.querySelectorAll('.sec-people img');
 
 
 
@@ -71,6 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
     hide(buttonAsk);
     hide(buttonNext1);
     hide(buttonNext2);
+  };
+
+  let populateGuessMenu = () => {
+    let allNames = [];
+    allPeople.forEach(person => allNames.push(person.name));
+    allNames.sort();
+    populateSelectMenu(selectGuess, allNames);
   };
 
   let getAdjectives = feature => {
@@ -174,6 +185,25 @@ document.addEventListener('DOMContentLoaded', () => {
     show(buttonAsk);
   };
 
+  let handleP1Guess = () => {
+    if (selectGuess.value) {
+      clearAll();
+      secP2Person.style.backgroundImage = `url('../img/people/${p2Person.name.toLowerCase()}.png')`;
+      p2PersonName.textContent = p2Person.name;
+      if (selectGuess.value === p2Person.name) {
+        outcome.textContent = `${p2Person.name} is correct! You win!`;
+      } else {
+        outcome.textContent = `${selectGuess.value} is not correct. My Mystery Person is ${p2Person.name}. Sorry, you lose.`;
+      }
+      selectGuess.value = '';
+      show(secPopup);
+      show(buttonPlayAgain);
+      hide(buttonGuess);
+      hide(selectGuess);
+      secPeople.removeEventListener('mousedown', deselectPerson);
+    }
+  };
+
 
 
   // Button/click functions
@@ -186,10 +216,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     p1Person = allPeople[randomNum1];
     p2Person = allPeople[randomNum2];
-    mysteryPerson.textContent = `Your Mystery Person is ${p1Person.name}.`;
+    secP1Person.style.backgroundImage = `url('../img/people/${p1Person.name.toLowerCase()}.png')`;
+    p1PersonName.textContent = p1Person.name;
+    secP2Person.style.backgroundImage = `url('../img/blank.png')`;
+    p2PersonName.textContent = '';
+    show(buttonGuess);
+    show(selectGuess);
     hide(secPopup);
     hide(buttonStart);
     handleNext2();
+    for (let i = 0; i < allImages.length; i++) {
+      allImages[i].classList.remove('deselected');
+    }
+    secPeople.addEventListener('mousedown', deselectPerson);
     console.log(p1Person, p2Person); // Test
   };
 
@@ -232,12 +271,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setTimeout(() => {
       if (possibilities.length === 1) {
+        clearAll();
+        secP2Person.style.backgroundImage = `url('../img/people/${p2Person.name.toLowerCase()}.png')`;
+        p2PersonName.textContent = p2Person.name;
         outcome.textContent = `I want to make a guess: ${p1Person.name} is your Mystery Person! I win!`; // Future feature 1
+        selectGuess.value = '';
         show(secPopup);
         show(buttonPlayAgain);
-        hide(divP1Question);
-        clearText();
-        hideButtons();
+        hide(buttonGuess);
+        hide(selectGuess);
+        secPeople.removeEventListener('mousedown', deselectPerson);
       } else {
         response2.textContent = 'Okay';
         show(buttonNext2);
@@ -262,29 +305,17 @@ document.addEventListener('DOMContentLoaded', () => {
     assignMysteryPeople();
   }
 
-  let fadePerson = (event) => {
-    if (event.target.classList[0]) {
-      event.target.classList.remove('faded');
-    } else {
-      event.target.classList.add('faded');
+  let deselectPerson = (event) => {
+    console.log(event);
+    if (event.target.localName === 'img') {
+      if (event.target.classList[0]) {
+        event.target.classList.remove('deselected');
+      } else {
+        event.target.classList.add('deselected');
+      }
     }
   };
 
-
-
-  // Input functions
-
-  let handleP1Guess = () => {
-    clearAll();
-    if (p1Guess.value === p2Person.name) {
-      outcome.textContent = `${p2Person.name} is correct! You win!`;
-    } else {
-      outcome.textContent = `${p1Guess.value} is not correct. My Mystery Person is ${p2Person.name}. Sorry, you lose.`;
-    }
-    p1Guess.value = '';
-    show(secPopup);
-    show(buttonPlayAgain);
-  };
 
 
   // Event listeners
@@ -292,14 +323,19 @@ document.addEventListener('DOMContentLoaded', () => {
   selectQuestionType.addEventListener('change', handleSelectQuestionType);
   selectFeature.addEventListener('change', handleSelectFeature);
   selectAdjective.addEventListener('change', handleSelectAdjective);
-  buttonStart.addEventListener('click', assignMysteryPeople);
-  buttonAsk.addEventListener('click', handleAsk);
-  buttonNext1.addEventListener('click', handleNext1);
-  divResponseButtons.addEventListener('click', handleResponse);
-  buttonNext2.addEventListener('click', handleNext2);
-  buttonPlayAgain.addEventListener('click', handlePlayAgain);
-  secPeople.addEventListener('click', fadePerson);
-  buttonGuess.addEventListener('click', handleP1Guess);
+  buttonStart.addEventListener('mousedown', assignMysteryPeople);
+  buttonAsk.addEventListener('mousedown', handleAsk);
+  buttonNext1.addEventListener('mousedown', handleNext1);
+  divResponseButtons.addEventListener('mousedown', handleResponse);
+  buttonNext2.addEventListener('mousedown', handleNext2);
+  buttonPlayAgain.addEventListener('mousedown', handlePlayAgain);
+  buttonGuess.addEventListener('mousedown', handleP1Guess);
+
+
+
+  // Function calls
+
+  populateGuessMenu();
 
 });
 
