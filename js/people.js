@@ -331,5 +331,3 @@ createNewPerson(
   false, // Beard
   'yellow' // Shirt
 );
-
-console.log(allPeople); // Test
