@@ -10,45 +10,37 @@
 
   <body>
     
+    <div class="div-popup">
+      <button class="button-start">Pick Your Mystery Person</button>
+      <p class="outcome"></p>
+      <button class="button-play-again hidden">Pick Another Person</button>
+    </div>
+    
     <div class="container">
-
 
       <header>
         
         <p class="p1-label">Player 1</p>
-
         <p class="p2-label">Player 2</p>
       
-        <section class="sec-p1-person">
-        </section>
-        
-        <section class="sec-title">
-          <h1>Guess Who?</h1>
-        </section>
-        
-        <section class="sec-p2-person">
+        <div class="div-p1-person-img">
+        </div>
+        <h1>Guess Who?</h1>
+        <div class="div-p2-person-img">
           <button class="button-guess hidden">Guess</button>
-        </section>
+        </div>
 
         <p class="p1-person-name"></p>
-
         <div class="div-p2-person-name">
-          <select class="hidden"name="possibilities" id="p1-guess"></select>
+          <select id="p1-guess" class="invisible" name="possibilities"></select>
           <p class="p2-person-name"></p>
         </div>
       
       </header>
       
-      
       <main>
         
-        <section class="sec-popup">
-          <button class="button-start">Pick Your Mystery Person</button>
-          <p class="outcome"></p>
-          <button class="button-play-again hidden">Pick Another Person</button>
-        </section>
-        
-        <section class="sec-people">
+        <div class="div-people">
           <div class="adam">
             <img src="img/people/adam.png" alt="...">
             <p>Adam</p>
@@ -145,46 +137,44 @@
             <img src="img/people/thomas.png" alt="...">
             <p>Thomas</p>
           </div>
-        </section>
+        </div>
         
       </main>
       
-      
       <footer>
             
-        <section class="sec-response1">
+        <div class="div-p1-response">
           <p class="response1"></p>
-        </section>
-        
-        <section class="sec-question">
-          <div class="div-p1-question hidden">
-            <select name="question-types" class="question-type">
-              <option value="Does">Does</option>
-              <option value="Is">Is</option>
-            </select>
-            <p class="question-center"></p>
-            <select name="adjective" class="adjective">
-            </select>
-            <select name="features" class="feature">
-            </select>
-            <p>?</p>
+        </div>
+        <div class="div-question-controls">
+          <div class="div-question">
+            <div class="div-p1-question hidden">
+              <select name="question-types" class="question-type">
+                <option value="Does">Does</option>
+                <option value="Is">Is</option>
+              </select>
+              <p class="question-center"></p>
+              <select name="adjective" class="adjective">
+              </select>
+              <select name="features" class="feature">
+              </select>
+              <p>?</p>
+            </div>
+            <p class="current-question"></p>
           </div>
-          <p class="current-question"></p>
-        </section>
-
-        <section class="sec-response2">
+          <div class="div-controls">
+            <button class="button-ask hidden">Ask Question</button>
+            <button class="button-next1 hidden">Next Question</button>
+            <button class="button-next2 hidden">Next Question</button>
+            <div class="div-response-buttons hidden">
+              <button class="button-yes">Yes</button>
+              <button class="button-no">No</button>
+            </div>
+        </div>
+        </div>
+        <div class="div-p2-response">
           <p class="response2"></p>
-        </section>
-
-        <section class="sec-controls">
-          <button class="button-ask hidden">Ask Question</button>
-          <button class="button-next1 hidden">Next Question</button>
-          <button class="button-next2 hidden">Next Question</button>
-          <div class="div-response-buttons hidden">
-            <button class="button-yes">Yes</button>
-            <button class="button-no">No</button>
-          </div>
-        </section>
+        </div>
 
       </footer>
 

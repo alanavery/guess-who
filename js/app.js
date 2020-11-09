@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Sections
 
-  let secP1Person = document.querySelector('.sec-p1-person');
-  let secP2Person = document.querySelector('.sec-p2-person');
-  let secPopup = document.querySelector('.sec-popup');
-  let secPeople = document.querySelector('.sec-people');
+  let divPopup = document.querySelector('.div-popup');
+  let divPeople = document.querySelector('.div-people');
 
   // Divs
 
+  let divP1PersonImg = document.querySelector('.div-p1-person-img');
+  let divP2PersonImg = document.querySelector('.div-p2-person-img');
   let divP1Question = document.querySelector('.div-p1-question');
   let divResponseButtons = document.querySelector('.div-response-buttons');
 
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Images
 
-  let allImages = document.querySelectorAll('.sec-people img');
+  let allImages = document.querySelectorAll('.div-people img');
 
 
 
@@ -60,9 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let pickRandomNum = maxNum => Math.floor(Math.random() * maxNum);
 
-  let show = element => element.classList.remove('hidden');
+  let show = element => element.classList.remove('hidden', 'invisible');
 
   let hide = element => element.classList.add('hidden');
+
+  let invisible = element => element.classList.add('invisible');
 
   let clearAll = () => {
     response1.textContent = '';
@@ -188,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let handleP1Guess = () => {
     if (selectGuess.value) {
       clearAll();
-      secP2Person.style.backgroundImage = `url('../img/people/${p2Person.name.toLowerCase()}.png')`;
+      divP2PersonImg.style.backgroundImage = `url('../img/people/${p2Person.name.toLowerCase()}.png')`;
       p2PersonName.textContent = p2Person.name;
       if (selectGuess.value === p2Person.name) {
         outcome.textContent = `${p2Person.name} is correct! You win!`;
@@ -196,11 +198,11 @@ document.addEventListener('DOMContentLoaded', () => {
         outcome.textContent = `${selectGuess.value} is not correct. My Mystery Person is ${p2Person.name}. Sorry, you lose.`;
       }
       selectGuess.value = '';
-      show(secPopup);
+      show(divPopup);
       show(buttonPlayAgain);
       hide(buttonGuess);
-      hide(selectGuess);
-      secPeople.removeEventListener('mousedown', deselectPerson);
+      invisible(selectGuess);
+      divPeople.removeEventListener('mousedown', deselectPerson);
     }
   };
 
@@ -216,19 +218,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     p1Person = allPeople[randomNum1];
     p2Person = allPeople[randomNum2];
-    secP1Person.style.backgroundImage = `url('../img/people/${p1Person.name.toLowerCase()}.png')`;
+    divP1PersonImg.style.backgroundImage = `url('../img/people/${p1Person.name.toLowerCase()}.png')`;
     p1PersonName.textContent = p1Person.name;
-    secP2Person.style.backgroundImage = `url('../img/blank.png')`;
+    divP2PersonImg.style.backgroundImage = `url('../img/blank.png')`;
     p2PersonName.textContent = '';
     show(buttonGuess);
     show(selectGuess);
-    hide(secPopup);
+    hide(divPopup);
     hide(buttonStart);
     handleNext2();
     for (let i = 0; i < allImages.length; i++) {
       allImages[i].classList.remove('deselected');
     }
-    secPeople.addEventListener('mousedown', deselectPerson);
+    divPeople.addEventListener('mousedown', deselectPerson);
     console.log(p1Person, p2Person); // Test
   };
 
@@ -272,15 +274,15 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       if (possibilities.length === 1) {
         clearAll();
-        secP2Person.style.backgroundImage = `url('../img/people/${p2Person.name.toLowerCase()}.png')`;
+        divP2PersonImg.style.backgroundImage = `url('../img/people/${p2Person.name.toLowerCase()}.png')`;
         p2PersonName.textContent = p2Person.name;
         outcome.textContent = `I want to make a guess: ${p1Person.name} is your Mystery Person! I win!`; // Future feature 1
         selectGuess.value = '';
-        show(secPopup);
+        show(divPopup);
         show(buttonPlayAgain);
         hide(buttonGuess);
-        hide(selectGuess);
-        secPeople.removeEventListener('mousedown', deselectPerson);
+        invisible(selectGuess);
+        divPeople.removeEventListener('mousedown', deselectPerson);
       } else {
         response2.textContent = 'Okay';
         show(buttonNext2);
