@@ -1,6 +1,6 @@
 # Guess Who?
 
-![Image](img/README/hero.jpeg)
+> ![Image](img/README/hero.jpeg)
 
 ### A digital version of the classic family game
 
@@ -22,35 +22,35 @@ Instructions for using the project and playing the game are included below, as w
 
 1. After opening the game, click `Pick Your Mystery Person` to be assigned your Mystery Person and start the game. You will see your Mystery Person on the left side of the window.
 
-![Image](img/README/instructions-01.jpeg)
+> ![Image](img/README/instructions-01.jpeg)
 
 2. You get to ask a question first. Click on the black-bordered rectangles at the bottom to access dropdown menus that will enable you to craft your question. Depending on what feature you ask about, a third dropdown menu may appear, allowing you to make your question more specific.
 
-![Image](img/README/instructions-02.jpeg)
+> ![Image](img/README/instructions-02.jpeg)
 
 3. Once you've built your question, click `Ask Question` to submit it. After some pondering, the computer will answer it with a "Yes" or a "No", seen in the speech bubble in the bottom-right corner.
 
-![Image](img/README/instructions-03.jpeg)
+> ![Image](img/README/instructions-03.jpeg)
 
 4. Use the computer's response to mark-off any people who couldn't be the computer's Mystery Person. Do this by simply clicking on their face. When you're ready to move on, click `Next Question` at the bottom.
 
-![Image](img/README/instructions-04.jpeg)
+> ![Image](img/README/instructions-04.jpeg)
 
 5. The computer will now ask you a question. Reference your Mystery Person's image in the top-left corner, and respond by clicking either `Yes` or `No`.
 
-![Image](img/README/instructions-05.jpeg)
+> ![Image](img/README/instructions-05.jpeg)
 
 6. Once the computer has processed your response, it will either say, "Okay", or it will try and guess your Mystery Person. If it says, "Okay", click `Next Question` to ask your question, and repeat steps 2–6. If it makes a guess, the game will end.
 
-![Image](img/README/instructions-06.jpeg)
+> ![Image](img/README/instructions-06.jpeg)
 
 7. Whenever you're ready to guess the computer's Mystery Person, select their name from the dropdown menu on the right side of the window and click `Guess`. The game will end and a message will appear, letting you know if your guess was correct.
 
-![Image](img/README/instructions-07.jpeg)
+> ![Image](img/README/instructions-07.jpeg)
 
 8. Click `Pick Another Person` to play again.
 
-![Image](img/README/instructions-08.jpeg)
+> ![Image](img/README/instructions-08.jpeg)
 
 ---
 ## How the Game Works
