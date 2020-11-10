@@ -9,179 +9,188 @@
   </head>
 
   <body>
-    
+
     <div class="div-popup">
-      <button class="button-start">Pick Your Mystery Person</button>
-      <p class="outcome"></p>
-      <button class="button-play-again hidden">Pick Another Person</button>
+      <div class="popup-content">
+        <img src="img/title-white.png" alt="Guess Who?">
+        <p class="intro">Ready to Guess Who? Click below for your Mystery Person assignment.</p>
+        <button class="button-start">Start the Game</button>
+        <p class="outcome"></p>
+        <button class="button-play-again hidden">Play Again</button>
+      </div>
+      <div class="screen"></div>
     </div>
-    
+
     <div class="container">
 
-      <header>
-        
-        <p class="p1-label">Player 1</p>
-        <p class="p2-label">Player 2</p>
-      
-        <div class="div-p1-person-img">
-        </div>
-        <h1>Guess Who?</h1>
-        <div class="div-p2-person-img">
-          <button class="button-guess hidden">Guess</button>
-        </div>
+      <div class="title-div">
+        <img src="img/title.png" alt="Guess Who?">
+      </div>
 
+      <div class="instructions-div">
+        <p class="instructions-title">Instructions</p>
+        <p class="instructions-body hidden"></p>
+        <p class="instructions-toggle">Click to Show</p>
+      </div>
+
+      <div class="p1-div">
+        <p class="p1-label">Player 1</p>
+        <div class="div-p1-person-img"></div>
         <p class="p1-person-name"></p>
+      </div>
+
+      <div class="p2-div">
+        <p class="p2-label">Player 2</p>
+        <div class="div-p2-person-img"></div>
         <div class="div-p2-person-name">
           <select id="p1-guess" class="invisible" name="possibilities"></select>
+          <button class="button-guess hidden">Guess</button>
           <p class="p2-person-name"></p>
         </div>
-      
-      </header>
-      
-      <main>
-        
-        <div class="div-people">
-          <div class="adam">
-            <img src="img/people/adam.png" alt="...">
-            <p>Adam</p>
-          </div>
-          <div class="amber">
-            <img src="img/people/amber.png" alt="...">
-            <p>Amber</p>
-          </div>
-          <div class="bobby">
-            <img src="img/people/bobby.png" alt="...">
-            <p>Bobby</p>
-          </div>
-          <div class="chris">
-            <img src="img/people/chris.png" alt="...">
-            <p>Chris</p>
-          </div>
-          <div class="dave">
-            <img src="img/people/dave.png" alt="...">
-            <p>Dave</p>
-          </div>
-          <div class="ellie">
-            <img src="img/people/ellie.png" alt="...">
-            <p>Ellie</p>
-          </div>
-          <div class="emily">
-            <img src="img/people/emily.png" alt="...">
-            <p>Emily</p>
-          </div>
-          <div class="emma">
-            <img src="img/people/emma.png" alt="...">
-            <p>Emma</p>
-          </div>
-          <div class="hannah">
-            <img src="img/people/hannah.png" alt="...">
-            <p>Hannah</p>
-          </div>
-          <div class="henry">
-            <img src="img/people/henry.png" alt="...">
-            <p>Henry</p>
-          </div>
-          <div class="holly">
-            <img src="img/people/holly.png" alt="...">
-            <p>Holly</p>
-          </div>
-          <div class="jake">
-            <img src="img/people/jake.png" alt="...">
-            <p>Jake</p>
-          </div>
-          <div class="jess">
-            <img src="img/people/jess.png" alt="...">
-            <p>Jess</p>
-          </div>
-          <div class="joey">
-            <img src="img/people/joey.png" alt="...">
-            <p>Joey</p>
-          </div>
-          <div class="mary">
-            <img src="img/people/mary.png" alt="...">
-            <p>Mary</p>
-          </div>
-          <div class="matt">
-            <img src="img/people/matt.png" alt="...">
-            <p>Matt</p>
-          </div>
-          <div class="megan">
-            <img src="img/people/megan.png" alt="...">
-            <p>Megan</p>
-          </div>
-          <div class="molly">
-            <img src="img/people/molly.png" alt="...">
-            <p>Molly</p>
-          </div>
-          <div class="myra">
-            <img src="img/people/myra.png" alt="...">
-            <p>Myra</p>
-          </div>
-          <div class="oliver">
-            <img src="img/people/oliver.png" alt="...">
-            <p>Oliver</p>
-          </div>
-          <div class="rick">
-            <img src="img/people/rick.png" alt="...">
-            <p>Rick</p>
-          </div>
-          <div class="sami">
-            <img src="img/people/sami.png" alt="...">
-            <p>Sami</p>
-          </div>
-          <div class="sarah">
-            <img src="img/people/sarah.png" alt="...">
-            <p>Sarah</p>
-          </div>
-          <div class="thomas">
-            <img src="img/people/thomas.png" alt="...">
-            <p>Thomas</p>
-          </div>
+      </div>
+
+      <div class="people-div">
+        <div class="adam">
+          <img src="img/people/adam.png" alt="...">
+          <p>Adam</p>
         </div>
-        
-      </main>
-      
-      <footer>
-            
+        <div class="amber">
+          <img src="img/people/amber.png" alt="...">
+          <p>Amber</p>
+        </div>
+        <div class="bobby">
+          <img src="img/people/bobby.png" alt="...">
+          <p>Bobby</p>
+        </div>
+        <div class="chris">
+          <img src="img/people/chris.png" alt="...">
+          <p>Chris</p>
+        </div>
+        <div class="dave">
+          <img src="img/people/dave.png" alt="...">
+          <p>Dave</p>
+        </div>
+        <div class="ellie">
+          <img src="img/people/ellie.png" alt="...">
+          <p>Ellie</p>
+        </div>
+        <div class="emily">
+          <img src="img/people/emily.png" alt="...">
+          <p>Emily</p>
+        </div>
+        <div class="emma">
+          <img src="img/people/emma.png" alt="...">
+          <p>Emma</p>
+        </div>
+        <div class="hannah">
+          <img src="img/people/hannah.png" alt="...">
+          <p>Hannah</p>
+        </div>
+        <div class="henry">
+          <img src="img/people/henry.png" alt="...">
+          <p>Henry</p>
+        </div>
+        <div class="holly">
+          <img src="img/people/holly.png" alt="...">
+          <p>Holly</p>
+        </div>
+        <div class="jake">
+          <img src="img/people/jake.png" alt="...">
+          <p>Jake</p>
+        </div>
+        <div class="jess">
+          <img src="img/people/jess.png" alt="...">
+          <p>Jess</p>
+        </div>
+        <div class="joey">
+          <img src="img/people/joey.png" alt="...">
+          <p>Joey</p>
+        </div>
+        <div class="mary">
+          <img src="img/people/mary.png" alt="...">
+          <p>Mary</p>
+        </div>
+        <div class="matt">
+          <img src="img/people/matt.png" alt="...">
+          <p>Matt</p>
+        </div>
+        <div class="megan">
+          <img src="img/people/megan.png" alt="...">
+          <p>Megan</p>
+        </div>
+        <div class="molly">
+          <img src="img/people/molly.png" alt="...">
+          <p>Molly</p>
+        </div>
+        <div class="myra">
+          <img src="img/people/myra.png" alt="...">
+          <p>Myra</p>
+        </div>
+        <div class="oliver">
+          <img src="img/people/oliver.png" alt="...">
+          <p>Oliver</p>
+        </div>
+        <div class="rick">
+          <img src="img/people/rick.png" alt="...">
+          <p>Rick</p>
+        </div>
+        <div class="sami">
+          <img src="img/people/sami.png" alt="...">
+          <p>Sami</p>
+        </div>
+        <div class="sarah">
+          <img src="img/people/sarah.png" alt="...">
+          <p>Sarah</p>
+        </div>
+        <div class="thomas">
+          <img src="img/people/thomas.png" alt="...">
+          <p>Thomas</p>
+        </div>
+      </div>
+
+      <div class="question-response-div">
+
         <div class="div-p1-response">
           <p class="response1"></p>
         </div>
-        <div class="div-question-controls">
-          <div class="div-question">
-            <div class="div-p1-question hidden">
-              <select name="question-types" class="question-type">
-                <option value="Does">Does</option>
-                <option value="Is">Is</option>
-              </select>
-              <p class="question-center"></p>
-              <select name="adjective" class="adjective">
-              </select>
-              <select name="features" class="feature">
-              </select>
-              <p>?</p>
-            </div>
-            <p class="current-question"></p>
-          </div>
-          <div class="div-controls">
-            <button class="button-ask hidden">Ask Question</button>
-            <button class="button-next1 hidden">Next Question</button>
-            <button class="button-next2 hidden">Next Question</button>
-            <div class="div-response-buttons hidden">
-              <button class="button-yes">Yes</button>
-              <button class="button-no">No</button>
-            </div>
-        </div>
-        </div>
+
         <div class="div-p2-response">
           <p class="response2"></p>
         </div>
 
-      </footer>
+        <div class="div-question">
+          <div class="div-p1-question hidden">
+            <select name="question-types" class="question-type">
+              <option value="Does">Does</option>
+              <option value="Is">Is</option>
+            </select>
+            <p class="question-center"></p>
+            <select name="adjective" class="adjective">
+            </select>
+            <select name="features" class="feature">
+            </select>
+            <p>?</p>
+          </div>
+          <p class="current-question"></p>
+        </div>
+
+        <div class="div-controls">
+          <button class="button-ask hidden">Ask Question</button>
+          <button class="button-next1 hidden">Next Question</button>
+          <button class="button-next2 hidden">Next Question</button>
+          <div class="div-response-buttons hidden">
+            <button class="button-yes">Yes</button>
+            <button class="button-no">No</button>
+          </div>
+        </div>
+
+      </div>
 
     </div>
 
     <script src="js/people.js"></script>
     <script src="js/app.js"></script>
+
   </body>
 
 </html>
