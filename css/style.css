@@ -30,9 +30,9 @@ select {
 }
 
 
-/* Pop-up */
+/* Message */
 
-.popup-content {
+.div-message-content {
   position: absolute;
   top: 20%;
   right: 30%;
@@ -51,14 +51,14 @@ select {
   filter: drop-shadow(0 -8px 20px black);
 }
 
-.popup-content img {
+.div-message-content img {
   width: 60%;
   max-width: 400px;
   min-width: 250px;
   padding-bottom: 30px;
 }
 
-.popup-content p {
+.div-message-content p {
   padding-bottom: 20px;
   font-size: 30px;
   font-weight: 600;
@@ -66,7 +66,7 @@ select {
   color: white;
 }
 
-.popup-content button {
+.div-message-content button {
   background-color: white;
   font-size: 24px;
   color: #BD242A;
@@ -84,9 +84,9 @@ select {
 }
 
 
-/* Container */
+/* Gameboard */
 
-.container {
+.div-gameboard {
   max-width: 90%;
   height: 100%;
   display: grid;
@@ -101,19 +101,19 @@ select {
 
 /* Title */
 
-.title-div {
+.div-title {
   grid-column: 1 / 3;
   grid-row: 1;
 }
 
-.title-div img {
+.div-title img {
   width: 100%;
 }
 
 
 /* Instructions */
 
-.instructions-div {
+.div-instructions {
   grid-column: 4 / 6;
   grid-row: 1;
 }
@@ -144,12 +144,12 @@ select {
 
 /* Player info */
 
-.p1-div {
+.div-p1 {
   grid-column: 1;
   grid-row: 2;
 }
 
-.p2-div {
+.div-p2 {
   grid-column: 5;
   grid-row: 2;
 }
@@ -166,7 +166,7 @@ select {
   color: #662D91;
 }
 
-.div-p1-person-img, .div-p2-person-img {
+.p1-person-img, .p2-person-img {
   width: 100%;
   height: 150px;
   display: flex;
@@ -181,11 +181,11 @@ select {
   background-size: cover;
 }
 
-.div-p1-person-img {
+.p1-person-img {
   border-color: #17955D;
 }
 
-.div-p2-person-img {
+.p2-person-img {
   border-color: #662D91;
 }
 
@@ -213,9 +213,10 @@ select {
   background-color: #662D91;
 }
 
-/* People section */
 
-.people-div {
+/* People */
+
+.div-people {
   grid-column: 3;
   grid-row: 1 / 4;
   max-width: 1400px;
@@ -228,7 +229,7 @@ select {
   overflow: auto;
 }
 
-.people-div img {
+.div-people img {
   width: 100%;
   cursor: pointer;
 }
@@ -239,9 +240,9 @@ select {
 }
 
 
-/* Question and response section */
+/* Question and response */
 
-.question-response-div {
+.div-question-response {
   grid-column: 1 / 6;
   grid-row: 4;
   display: grid;
@@ -333,7 +334,7 @@ select {
 
 @media screen and (max-width: 1400px) {
 
-.people-div {
+.div-people {
   grid-template-columns: repeat(4, 1fr);
 }
 

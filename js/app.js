@@ -27,13 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Sections
 
-  let divPopup = document.querySelector('.div-popup');
-  let divPeople = document.querySelector('.people-div');
+  let divMessage = document.querySelector('.div-message');
+  let divPeople = document.querySelector('.div-people');
 
   // Divs
 
-  let divP1PersonImg = document.querySelector('.div-p1-person-img');
-  let divP2PersonImg = document.querySelector('.div-p2-person-img');
+  let p1PersonImg = document.querySelector('.p1-person-img');
+  let p2PersonImg = document.querySelector('.p2-person-img');
   let divP1Question = document.querySelector('.div-p1-question');
   let divResponseButtons = document.querySelector('.div-response-buttons');
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Images
 
-  let allImages = document.querySelectorAll('.people-div img');
+  let allImages = document.querySelectorAll('.div-people img');
 
 
 
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let handleP1Guess = () => {
     if (selectGuess.value) {
       clearAll();
-      divP2PersonImg.style.backgroundImage = `url('../img/people/${p2Person.name.toLowerCase()}.png')`;
+      p2PersonImg.style.backgroundImage = `url('../img/people/${p2Person.name.toLowerCase()}.png')`;
       p2PersonName.textContent = p2Person.name;
       if (selectGuess.value === p2Person.name) {
         outcome.textContent = `${p2Person.name} is correct! You win!`;
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         outcome.textContent = `${selectGuess.value} is not correct. Player 2's Mystery Person is ${p2Person.name}. Looks like they win.`;
       }
       selectGuess.value = '';
-      show(divPopup);
+      show(divMessage);
       show(buttonPlayAgain);
       hide(buttonGuess);
       hide(selectGuess);
@@ -219,13 +219,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     p1Person = allPeople[randomNum1];
     p2Person = allPeople[randomNum2];
-    divP1PersonImg.style.backgroundImage = `url('../img/people/${p1Person.name.toLowerCase()}.png')`;
+    p1PersonImg.style.backgroundImage = `url('../img/people/${p1Person.name.toLowerCase()}.png')`;
     p1PersonName.textContent = p1Person.name;
-    divP2PersonImg.style.backgroundImage = `url('../img/blank.png')`;
+    p2PersonImg.style.backgroundImage = `url('../img/blank.png')`;
     p2PersonName.textContent = '';
     show(buttonGuess);
     show(selectGuess);
-    hide(divPopup);
+    hide(divMessage);
     hide(buttonStart);
     hide(intro);
     handleNext2();
@@ -279,11 +279,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       if (possibilities.length === 1) {
         clearAll();
-        divP2PersonImg.style.backgroundImage = `url('../img/people/${p2Person.name.toLowerCase()}.png')`;
+        p2PersonImg.style.backgroundImage = `url('../img/people/${p2Person.name.toLowerCase()}.png')`;
         p2PersonName.textContent = p2Person.name;
         outcome.textContent = `Oh no! Player 2 figured out your Mystery Person. It's ${p1Person.name}! They win this time.`; // Future feature 1
         selectGuess.value = '';
-        show(divPopup);
+        show(divMessage);
         show(buttonPlayAgain);
         hide(buttonGuess);
         hide(selectGuess);

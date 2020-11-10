@@ -10,8 +10,9 @@
 
   <body>
 
-    <div class="div-popup">
-      <div class="popup-content">
+    <!-- Message -->
+    <div class="div-message">
+      <div class="div-message-content">
         <img src="img/title-white.png" alt="Guess Who?">
         <p class="intro">Ready to Guess Who? Click below for your Mystery Person assignment.</p>
         <button class="button-start">Start the Game</button>
@@ -21,27 +22,30 @@
       <div class="screen"></div>
     </div>
 
-    <div class="container">
+    <!-- Gameboard -->
+    <div class="div-gameboard">
 
-      <div class="title-div">
+      <!-- Title -->
+      <div class="div-title">
         <img src="img/title.png" alt="Guess Who?">
       </div>
 
-      <div class="instructions-div">
+      <!-- Instructions -->
+      <div class="div-instructions">
         <p class="instructions-title">Instructions</p>
         <p class="instructions-body hidden"></p>
         <p class="instructions-toggle">Click to Show</p>
       </div>
 
-      <div class="p1-div">
+      <!-- Player info -->
+      <div class="div-p1">
         <p class="p1-label">Player 1</p>
-        <div class="div-p1-person-img"></div>
+        <div class="p1-person-img"></div>
         <p class="p1-person-name"></p>
       </div>
-
-      <div class="p2-div">
+      <div class="div-p2">
         <p class="p2-label">Player 2</p>
-        <div class="div-p2-person-img"></div>
+        <div class="p2-person-img"></div>
         <div class="div-p2-person-name">
           <select id="p1-guess" class="invisible" name="possibilities"></select>
           <button class="button-guess hidden">Guess</button>
@@ -49,7 +53,8 @@
         </div>
       </div>
 
-      <div class="people-div">
+      <!-- People -->
+      <div class="div-people">
         <div class="adam">
           <img src="img/people/adam.png" alt="...">
           <p>Adam</p>
@@ -148,16 +153,14 @@
         </div>
       </div>
 
-      <div class="question-response-div">
-
+      <!-- Question and response -->
+      <div class="div-question-response">
         <div class="div-p1-response">
           <p class="response1"></p>
         </div>
-
         <div class="div-p2-response">
           <p class="response2"></p>
         </div>
-
         <div class="div-question">
           <div class="div-p1-question hidden">
             <select name="question-types" class="question-type">
@@ -173,7 +176,6 @@
           </div>
           <p class="current-question"></p>
         </div>
-
         <div class="div-controls">
           <button class="button-ask hidden">Ask Question</button>
           <button class="button-next1 hidden">Next Question</button>
