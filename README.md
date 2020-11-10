@@ -8,15 +8,15 @@ Guess Who? is a two-player guessing game typically played with boards featuring 
 
 This project—my first, as a member of General Assembly's software engineering immersive—is a digital version of Guess Who? The players are comprised of the user and the computer, and a digital board/grid is used to keep track of the computer's responses. Apart from those changes, the game is practically the same. The user asks the computer questions—the range of which is somewhat restricted in this version—and the computer asks them in return. Every time the user provides a response, the computer filters through its list of possible characters until it ends up with one, at which point, it makes its guess and ends the game. That is, unless the user can submit a correct guess first.
 
-## Technology Used
 ---
+## Technology Used
 
 Guess Who? was built using HTML, CSS and vanilla JavaScript.
 
 Two Javascript files are used in this project: `people.js` contains all of the characters' data, while `app.js` handles the game's functionality.
 
-## How to Play
 ---
+## How to Play
 
 Instructions for using the project and playing the game are included below, as well as within the game itself.
 
@@ -52,8 +52,8 @@ Instructions for using the project and playing the game are included below, as w
 
 ![Image](img/README/instructions-08.jpeg)
 
-## How the Game Works
 ---
+## How the Game Works
 
 The game is primarily composed of four distinct events:
 
@@ -86,8 +86,8 @@ In addition to the four key events and their functions, there are a number of ot
 | `toggleInstructions` | Hides and shows the instructions |
 
 
-## Installation
 ---
+## Installation
 
 Instructions for accessing the project's working files on your local computer are included below.
 
@@ -103,7 +103,7 @@ git clone https://github.com/delayedaa/guess-who.git
 open index.html
 ```
 
-## Credits
 ---
+## Credits
 
 Thanks to `Vector_Vision` for the character illustrations. You can access more of their work on [Adobe Stock.](https://stock.adobe.com/contributor/206040275/vector-vision?load_type=author&prev_url=detail)

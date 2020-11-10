@@ -116,28 +116,27 @@ select {
 .div-instructions {
   grid-column: 4 / 6;
   grid-row: 1;
+  color: gray;
+}
+
+.instructions-title, .instructions-toggle {
+  font-family: 'Luckiest Guy', cursive;
+  letter-spacing: 0.5px;
 }
 
 .instructions-title {
   padding-bottom: 4px;
-  font-family: 'Luckiest Guy', cursive;
   font-size: 20px;
-  letter-spacing: 0.5px;
-  color: gray;
 }
 
 .instructions-body {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
-  color: gray;
   padding-bottom: 12px;
 }
 
 .instructions-toggle {
-  font-family: 'Luckiest Guy', cursive;
-  letter-spacing: 0.5px;
-  color: gray;
   cursor: pointer;
 }
 
@@ -158,11 +157,11 @@ select {
   font-weight: 700;
 }
 
-.p1-label {
+.p1-color {
   color: #17955D;
 }
 
-.p2-label {
+.p2-color {
   color: #662D91;
 }
 
@@ -192,14 +191,6 @@ select {
 .p1-person-name, .p2-person-name {
   font-size: 20px;
   font-weight: 700;
-}
-
-.p1-person-name {
-  color: #17955D;
-}
-
-.p2-person-name {
-  color: #662D91;
 }
 
 #p1-guess {
@@ -253,7 +244,8 @@ select {
 .div-p1-response, .div-p2-response {
   grid-row: 1 / 4;
   z-index: 1;
-  background-size: cover;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
 }
 
 .div-p1-response {
@@ -274,21 +266,14 @@ select {
   font-weight: 700;
 }
 
-.response1 {
-  color: #17955D;
-}
-
-.response2 {
-  color: #662D91;
-}
-
 .div-question {
   grid-column: 2 / 5;
   grid-row: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 15px 105px;
+  border-radius: 10px;
   background-image: url('../img/question-mark-bkg-02.png');
   background-size: cover;
 }
