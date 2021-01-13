@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
   // Variables
   let p1Person;
   let p2Person;
@@ -7,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let keyFeature;
   let keyAdjective;
   let allFeatures = Object.keys(allPeople[0]);
-  let doesFeatures = allFeatures.filter(feature => feature !== 'name' && feature !== 'gender').sort();
+  let doesFeatures = allFeatures
+    .filter((feature) => feature !== 'name' && feature !== 'gender')
+    .sort();
 
   // Text elements
   let intro = document.querySelector('.intro');
@@ -46,14 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let p2PersonImg = document.querySelector('.p2-person-img');
   let allImages = document.querySelectorAll('.div-people img');
 
-
   // Helper functions
 
-  let pickRandomNum = maxNum => Math.floor(Math.random() * maxNum);
+  let pickRandomNum = (maxNum) => Math.floor(Math.random() * maxNum);
 
-  let show = element => element.classList.remove('hidden');
+  let show = (element) => element.classList.remove('hidden');
 
-  let hide = element => element.classList.add('hidden');
+  let hide = (element) => element.classList.add('hidden');
 
   let clearGameboard = () => {
     response1.textContent = '';
@@ -82,28 +82,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     p1Person = allPeople[randomNum1];
     p2Person = allPeople[randomNum2];
-    p1PersonImg.style.backgroundImage = `url('../img/people/${p1Person.name.toLowerCase()}.png')`;
+    p1PersonImg.style.backgroundImage = `url('/../img/people/${p1Person.name.toLowerCase()}.png')`;
     p1PersonName.textContent = p1Person.name;
-    p2PersonImg.style.backgroundImage = `url('../img/blank.png')`;
+    p2PersonImg.style.backgroundImage = `url('/../img/blank.png')`;
     p2PersonName.textContent = '';
   };
 
   let populateGuessMenu = () => {
     let allNames = [];
-    allPeople.forEach(person => allNames.push(person.name));
+    allPeople.forEach((person) => allNames.push(person.name));
     allNames.sort();
     populateSelectMenu(selectGuess, allNames);
   };
 
-  let getAdjectives = feature => {
+  let getAdjectives = (feature) => {
     let allAdjectives = [];
-    allPeople.forEach(person => allAdjectives.push(person[feature]));
-    return allAdjectives.filter((adjective, index) => allAdjectives.indexOf(adjective) === index).sort();
+    allPeople.forEach((person) => allAdjectives.push(person[feature]));
+    return allAdjectives
+      .filter((adjective, index) => allAdjectives.indexOf(adjective) === index)
+      .sort();
   };
 
   let populateSelectMenu = (selectMenu, optionsArray) => {
     removeAllChildElements(selectMenu);
-    optionsArray.forEach(option => {
+    optionsArray.forEach((option) => {
       let newOption = document.createElement('option');
       newOption.textContent = option;
       newOption.value = option;
@@ -112,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     selectMenu.value = '';
   };
 
-  let removeAllChildElements = parent => {
+  let removeAllChildElements = (parent) => {
     while (parent.firstChild) {
       parent.removeChild(parent.firstChild);
     }
@@ -138,12 +140,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let checkForValidQuestion = () => {
     let bestPercentage = 0;
-    allFeatures.forEach(feature => {
+    allFeatures.forEach((feature) => {
       let allAdjectives = [];
-      possibilities.forEach(person => allAdjectives.push(person[feature]));
-      getAdjectives(feature).forEach(uniqueAdjective => {
-        let numAdjectives = allAdjectives.filter(adjective => adjective === uniqueAdjective).length;
-        if (numAdjectives <= possibilities.length / 2 && numAdjectives / possibilities.length >= bestPercentage) {
+      possibilities.forEach((person) => allAdjectives.push(person[feature]));
+      getAdjectives(feature).forEach((uniqueAdjective) => {
+        let numAdjectives = allAdjectives.filter((adjective) => adjective === uniqueAdjective)
+          .length;
+        if (
+          numAdjectives <= possibilities.length / 2 &&
+          numAdjectives / possibilities.length >= bestPercentage
+        ) {
           bestPercentage = numAdjectives / possibilities.length;
           keyFeature = feature;
           keyAdjective = uniqueAdjective;
@@ -161,10 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
     show(divMessage);
     show(buttonPlayAgain);
     divPeople.removeEventListener('click', fadePerson);
-    p2PersonImg.style.backgroundImage = `url('../img/people/${p2Person.name.toLowerCase()}.png')`;
+    p2PersonImg.style.backgroundImage = `url('/../img/people/${p2Person.name.toLowerCase()}.png')`;
     p2PersonName.textContent = p2Person.name;
   };
-
 
   // Change functions (select menus)
 
@@ -209,7 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-
   // Click functions (buttons)
 
   let handleStart = () => {
@@ -234,9 +238,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     displayQuestion();
     if (keyAdjective === p2Person[keyFeature]) {
-      setTimeout(() => response2.textContent = 'Yes', 2000);
+      setTimeout(() => (response2.textContent = 'Yes'), 2000);
     } else {
-      setTimeout(() => response2.textContent = 'No', 2000);
+      setTimeout(() => (response2.textContent = 'No'), 2000);
     }
     setTimeout(() => show(buttonNext1), 4000);
   };
@@ -255,10 +259,10 @@ document.addEventListener('DOMContentLoaded', () => {
     instructionsBody.textContent = `Click the "Next Question" button once Player 2 has processed your response. Note: you can guess their Mystery Person below at any time.`;
     if (event.target.textContent === 'Yes') {
       response1.textContent = 'Yes';
-      possibilities = possibilities.filter(person => person[keyFeature] === keyAdjective);
+      possibilities = possibilities.filter((person) => person[keyFeature] === keyAdjective);
     } else if (event.target.textContent === 'No') {
       response1.textContent = 'No';
-      possibilities = possibilities.filter(person => person[keyFeature] !== keyAdjective);
+      possibilities = possibilities.filter((person) => person[keyFeature] !== keyAdjective);
     }
     setTimeout(() => {
       if (possibilities.length === 1) {
@@ -275,7 +279,8 @@ document.addEventListener('DOMContentLoaded', () => {
     clearGameboard();
     clearQuestion();
     show(divP1Question);
-    instructionsBody.textContent = 'Ask Player 2 a question about their Mystery Person. Click the white boxes below to craft your question.';
+    instructionsBody.textContent =
+      'Ask Player 2 a question about their Mystery Person. Click the white boxes below to craft your question.';
     selectQuestionType.value = 'Does';
     handleSelectQuestionType();
   };
@@ -295,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     possibilities = allPeople;
     computerFirstQuestion = true;
     handleStart();
-  }
+  };
 
   let fadePerson = (event) => {
     if (event.target.localName === 'img') {
@@ -317,7 +322,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-
   // Event listeners
   instructionsToggle.addEventListener('click', toggleInstructions);
   selectQuestionType.addEventListener('change', handleSelectQuestionType);
@@ -333,9 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Function calls
   populateGuessMenu();
-
 });
-
 
 // Future features
 // 1. Have the computer guess its last possibility, instead of the actual solution. In order for this to work, I'll need to check the accuracy of every question the user asked.
